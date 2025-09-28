@@ -280,8 +280,8 @@ class _AiChatViewState extends State<AiChatView> {
     );
   }
 
-  void _openChatHistory(BuildContext context) {
-    Navigator.push(
+  void _openChatHistory(BuildContext context) async {
+    final result = await Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => BlocProvider.value(
@@ -290,6 +290,10 @@ class _AiChatViewState extends State<AiChatView> {
         ),
       ),
     );
+
+    if (result == true) {
+      setState(() {});
+    }
   }
 
   void _showNewChatDialog(BuildContext context) {

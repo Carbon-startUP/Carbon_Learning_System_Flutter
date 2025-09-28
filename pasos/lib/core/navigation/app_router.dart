@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pasos/features/advertisements/presentation/pages/advertisements_page.dart';
 import 'package:pasos/features/ai_chat/presentation/pages/ai_chat_page.dart';
 import 'package:pasos/features/auth/presentation/pages/login_page.dart';
 import 'package:pasos/features/auth/presentation/pages/splash_page.dart';
+import 'package:pasos/features/entertainment/presentation/pages/entertainment_category_page.dart';
+import 'package:pasos/features/entertainment/presentation/pages/entertainment_page.dart';
+import 'package:pasos/features/entertainment/presentation/pages/video_player_page.dart';
 import 'package:pasos/features/home/presentation/pages/home_page.dart';
 import 'package:pasos/features/ai_chat/presentation/pages/chat_history_page.dart';
+import 'package:pasos/features/profile/presentation/pages/create_profile_page.dart';
+import 'package:pasos/features/profile/presentation/pages/profile_page.dart';
+import 'package:pasos/features/profile/presentation/pages/edit_profile_page.dart';
+import 'package:pasos/features/costs/presentation/pages/costs_page.dart';
 
 class AppRouter {
   AppRouter._();
@@ -13,9 +21,47 @@ class AppRouter {
   static const String home = '/home';
   static const String aiChat = '/ai-chat';
   static const String chatHistory = '/chat-history';
+  static const String profile = '/profile';
+  static const String editProfile = '/edit-profile';
+  static const String createProfile = '/create-profile';
+  static const String costs = '/costs';
+  static const String advertisements = '/advertisements';
+  static const String entertainment = '/entertainment';
+  static const String entertainmentCategory = '/entertainment-category';
+  static const String videoPlayer = '/video-player';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case videoPlayer:
+        final args = settings.arguments as Map<String, dynamic>;
+        return _buildPageRoute(
+          VideoPlayerPage(
+            videoUrl: args['videoUrl'],
+            videoTitle: args['videoTitle'],
+          ),
+        );
+      case entertainmentCategory:
+        final args = settings.arguments as Map<String, dynamic>;
+        return _buildPageRoute(
+          EntertainmentCategoryPage(
+            categoryTitle: args['categoryTitle'],
+            videos: args['videos'],
+          ),
+        );
+      case entertainment:
+        return _buildPageRoute(const EntertainmentPage());
+      case costs:
+        return _buildPageRoute(const CostsPage());
+      case profile:
+        return _buildPageRoute(const ProfilePage());
+      case editProfile:
+        final args = settings.arguments as Map<String, dynamic>?;
+        return _buildPageRoute(
+          EditProfilePage(
+            profile: args?['profile'],
+            isChild: args?['isChild'] ?? false,
+          ),
+        );
       case chatHistory:
         return _buildPageRoute(const ChatHistoryPage());
       case aiChat:
@@ -26,6 +72,10 @@ class AppRouter {
         return _buildPageRoute(const LoginPage());
       case splash:
         return _buildPageRoute(const SplashPage());
+      case createProfile:
+        return _buildPageRoute(const CreateProfilePage());
+      case advertisements:
+        return _buildPageRoute(const AdvertisementsPage());
 
       default:
         return _buildPageRoute(
