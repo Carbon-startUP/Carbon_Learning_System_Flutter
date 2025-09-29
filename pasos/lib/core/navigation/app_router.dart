@@ -12,6 +12,9 @@ import 'package:pasos/features/profile/presentation/pages/create_profile_page.da
 import 'package:pasos/features/profile/presentation/pages/profile_page.dart';
 import 'package:pasos/features/profile/presentation/pages/edit_profile_page.dart';
 import 'package:pasos/features/costs/presentation/pages/costs_page.dart';
+import 'package:pasos/features/schedule/presentation/pages/request_meeting_page.dart';
+import 'package:pasos/features/schedule/presentation/pages/schedule_page.dart';
+import 'package:pasos/features/schedule/presentation/pages/teacher_meetings_page.dart';
 
 class AppRouter {
   AppRouter._();
@@ -29,6 +32,9 @@ class AppRouter {
   static const String entertainment = '/entertainment';
   static const String entertainmentCategory = '/entertainment-category';
   static const String videoPlayer = '/video-player';
+  static const String schedule = '/schedule';
+  static const String teacherMeetings = '/teacher-meetings';
+  static const String requestMeeting = '/request-meeting';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -62,6 +68,13 @@ class AppRouter {
             isChild: args?['isChild'] ?? false,
           ),
         );
+      case schedule:
+        return _buildPageRoute(const SchedulePage());
+      case teacherMeetings:
+        return _buildPageRoute(const TeacherMeetingsPage());
+      case requestMeeting:
+        final teacherId = settings.arguments as String?;
+        return _buildPageRoute(RequestMeetingPage(teacherId: teacherId));
       case chatHistory:
         return _buildPageRoute(const ChatHistoryPage());
       case aiChat:

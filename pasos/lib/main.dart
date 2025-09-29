@@ -6,6 +6,8 @@ import 'package:pasos/features/costs/data/repositories/costs_repository.dart';
 import 'package:pasos/features/costs/presentation/cubit/costs_cubit.dart';
 import 'package:pasos/features/profile/data/repositories/profile_repository.dart';
 import 'package:pasos/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:pasos/features/schedule/data/repositories/schedule_repository.dart';
+import 'package:pasos/features/schedule/presentation/cubit/schedule_cubit.dart';
 import 'package:pasos/shared/theme/app_theme.dart';
 
 void main() {
@@ -20,6 +22,9 @@ void main() {
         ),
         BlocProvider<CostsCubit>(
           create: (BuildContext context) => CostsCubit(),
+        ),
+        BlocProvider<ScheduleCubit>(
+          create: (BuildContext context) => ScheduleCubit(ScheduleRepository()),
         ),
       ],
       child: const MyApp(),

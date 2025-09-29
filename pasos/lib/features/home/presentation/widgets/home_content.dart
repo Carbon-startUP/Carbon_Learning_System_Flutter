@@ -81,6 +81,14 @@ class HomeContent extends StatelessWidget {
               onTap: () =>
                   Navigator.pushNamed(context, AppRouter.advertisements),
             ),
+            BuildFeatureCard(
+              context: context,
+              icon: Icons.calendar_today,
+              title: 'الجدول الدراسي',
+              description: 'عرض الجدول الدراسي وطلب مواعيد مع المعلمين',
+              gradientColors: [AppColors.primary, AppColors.secondary],
+              onTap: () => Navigator.pushNamed(context, AppRouter.schedule),
+            ),
           ],
         ),
       ),
