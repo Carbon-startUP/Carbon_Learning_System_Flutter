@@ -53,7 +53,7 @@ class CurriculumListItem extends StatelessWidget {
                   Text(
                     '${curriculum.subject} - ${curriculum.grade}',
                     style: AppTextStyles.bodySmall.copyWith(
-                      color: AppColors.white.withOpacity(0.8),
+                      color: AppColors.white.withValues(alpha: 0.8),
                     ),
                     textDirection: TextDirection.rtl,
                   ),

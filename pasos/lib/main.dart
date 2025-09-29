@@ -11,33 +11,49 @@ import 'package:pasos/features/profile/data/repositories/profile_repository.dart
 import 'package:pasos/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:pasos/features/schedule/data/repositories/schedule_repository.dart';
 import 'package:pasos/features/schedule/presentation/cubit/schedule_cubit.dart';
+import 'package:pasos/features/tracking/data/repositories/tracking_repository.dart';
+import 'package:pasos/features/tracking/presentation/cubit/tracking_cubit.dart';
 import 'package:pasos/shared/theme/app_theme.dart';
 
 void main() {
   runApp(
-    MultiBlocProvider(
+    MultiRepositoryProvider(
       providers: [
-        BlocProvider<AiChatCubit>(
-          create: (BuildContext context) => AiChatCubit(),
-        ),
-        BlocProvider<ProfileCubit>(
-          create: (BuildContext context) => ProfileCubit(ProfileRepository()),
-        ),
-        BlocProvider<CostsCubit>(
-          create: (BuildContext context) => CostsCubit(),
-        ),
-        BlocProvider<ScheduleCubit>(
-          create: (BuildContext context) => ScheduleCubit(ScheduleRepository()),
-        ),
-        BlocProvider<CurriculaCubit>(
-          create: (BuildContext context) =>
-              CurriculaCubit(CurriculaRepository()),
-        ),
-        BlocProvider<ExamResultsCubit>(
-          create: (BuildContext context) => ExamResultsCubit(ExamRepository()),
+        RepositoryProvider<TrackingRepository>(
+          create: (context) => TrackingRepository(),
         ),
       ],
-      child: const MyApp(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<AiChatCubit>(
+            create: (BuildContext context) => AiChatCubit(),
+          ),
+          BlocProvider<ProfileCubit>(
+            create: (BuildContext context) => ProfileCubit(ProfileRepository()),
+          ),
+          BlocProvider<CostsCubit>(
+            create: (BuildContext context) => CostsCubit(),
+          ),
+          BlocProvider<ScheduleCubit>(
+            create: (BuildContext context) =>
+                ScheduleCubit(ScheduleRepository()),
+          ),
+          BlocProvider<CurriculaCubit>(
+            create: (BuildContext context) =>
+                CurriculaCubit(CurriculaRepository()),
+          ),
+          BlocProvider<ExamResultsCubit>(
+            create: (BuildContext context) =>
+                ExamResultsCubit(ExamRepository()),
+          ),
+          BlocProvider<TrackingCubit>(
+            create: (context) => TrackingCubit(
+              trackingRepository: context.read<TrackingRepository>(),
+            ),
+          ),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }

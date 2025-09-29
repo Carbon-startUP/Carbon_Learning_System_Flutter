@@ -19,6 +19,8 @@ import 'package:pasos/features/costs/presentation/pages/costs_page.dart';
 import 'package:pasos/features/schedule/presentation/pages/request_meeting_page.dart';
 import 'package:pasos/features/schedule/presentation/pages/schedule_page.dart';
 import 'package:pasos/features/schedule/presentation/pages/teacher_meetings_page.dart';
+import 'package:pasos/features/tracking/presentation/pages/tracking_page.dart'
+    show TrackingPage;
 
 class AppRouter {
   AppRouter._();
@@ -42,6 +44,7 @@ class AppRouter {
   static const String curricula = '/curricula';
   static const String curriculumDetails = '/curriculum-details';
   static const String examResults = '/exam-results';
+  static const String tracking = '/tracking';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -100,6 +103,9 @@ class AppRouter {
         return _buildPageRoute(const CurriculaPage());
       case examResults:
         return _buildPageRoute(const ExamResultsPage());
+      case tracking:
+        return _buildPageRoute(const TrackingPage());
+
       case curriculumDetails:
         final curriculum = settings.arguments as CurriculumModel;
         return _buildPageRoute(CurriculumDetailsPage(curriculum: curriculum));
