@@ -41,24 +41,26 @@ class _TrackingPageState extends State<TrackingPage> {
             );
           }
           if (state is TrackingLoaded) {
-            return Stack(
-              children: [
-                MapWidget(trackingData: state.data),
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  child: TrackingInfoCard(status: state.status),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: TrackingControlPanel(
-                    isTrackingActive: state.status.isTrackingActive,
+            return SafeArea(
+              child: Stack(
+                children: [
+                  MapWidget(trackingData: state.data),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: TrackingInfoCard(status: state.status),
                   ),
-                ),
-              ],
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: TrackingControlPanel(
+                      isTrackingActive: state.status.isTrackingActive,
+                    ),
+                  ),
+                ],
+              ),
             );
           }
           return const SizedBox.shrink();

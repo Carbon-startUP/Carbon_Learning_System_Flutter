@@ -369,7 +369,7 @@ class _AiChatViewState extends State<AiChatView> {
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
             child: Text(
               'مسح',
-              style: AppTextStyles.arabicBody.copyWith(color: AppColors.black),
+              style: AppTextStyles.arabicBody.copyWith(color: AppColors.white),
             ),
           ),
         ],
