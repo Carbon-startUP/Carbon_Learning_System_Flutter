@@ -89,7 +89,7 @@ class ChildProfileCard extends StatelessWidget {
             '$label: ',
             style: AppTextStyles.arabicBody.copyWith(
               fontSize: 12,
-              color: AppColors.white.withValues(alpha: 0.7),
+              color: AppColors.black.withValues(alpha: 0.7),
             ),
           ),
           Text(value, style: AppTextStyles.arabicBody.copyWith(fontSize: 12)),

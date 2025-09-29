@@ -10,84 +10,84 @@ class AppTextStyles {
   static TextStyle get headlineLarge => const TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
-    color: AppColors.secondary,
+    color: AppColors.primary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get headlineMedium => const TextStyle(
     fontSize: 28,
     fontWeight: FontWeight.bold,
-    color: AppColors.secondary,
+    color: AppColors.primary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get headlineSmall => const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w600,
-    color: AppColors.secondary,
+    color: AppColors.primary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get titleLarge => const TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w600,
-    color: AppColors.secondary,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get titleMedium => const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    color: AppColors.secondary,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get titleSmall => const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: AppColors.secondary,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get bodyLarge => const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get bodyMedium => const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get bodySmall => const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get labelLarge => const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get labelMedium => const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
   static TextStyle get labelSmall => const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w500,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyEnglish,
   );
 
@@ -98,17 +98,24 @@ class AppTextStyles {
     fontFamily: _fontFamilyEnglish,
   );
 
+  static TextStyle get buttonTextarabic => const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColors.white,
+    fontFamily: _fontFamilyArabic,
+  );
+
   static TextStyle get arabicHeadline => const TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
-    color: AppColors.secondary,
+    color: AppColors.primary,
     fontFamily: _fontFamilyArabic,
   );
 
   static TextStyle get arabicBody => const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    color: AppColors.white,
+    color: AppColors.textPrimary,
     fontFamily: _fontFamilyArabic,
   );
 }

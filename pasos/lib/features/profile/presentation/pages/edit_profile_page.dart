@@ -13,11 +13,7 @@ class EditProfilePage extends StatefulWidget {
   final dynamic profile;
   final bool isChild;
 
-  const EditProfilePage({
-    super.key,
-    required this.profile,
-    required this.isChild,
-  });
+  const EditProfilePage({super.key, this.profile, required this.isChild});
 
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
@@ -29,7 +25,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _phoneController;
   late TextEditingController _emailController;
   late TextEditingController _addressController;
-
   late TextEditingController _religionController;
   late TextEditingController _nationalityController;
   late TextEditingController _cardIdController;
@@ -53,6 +48,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   void _initializeControllers() {
+    _fullNameController = TextEditingController();
+    _phoneController = TextEditingController();
+    _emailController = TextEditingController();
+    _addressController = TextEditingController();
+    _religionController = TextEditingController();
+    _nationalityController = TextEditingController();
+    _cardIdController = TextEditingController();
+    _braceletIdController = TextEditingController();
+    _selectedDate = DateTime.now().subtract(const Duration(days: 365 * 10));
+    _selectedGender = 'ذكر';
+    _healthData = HealthDataModel(bloodType: 'O+');
+
     if (widget.profile != null) {
       _fullNameController = TextEditingController(
         text: widget.profile.fullName,
@@ -95,6 +102,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
       _phoneController = TextEditingController();
       _emailController = TextEditingController();
       _addressController = TextEditingController();
+      _religionController = TextEditingController();
+      _nationalityController = TextEditingController();
+      _cardIdController = TextEditingController();
+      _braceletIdController = TextEditingController();
 
       _selectedDate = DateTime.now().subtract(const Duration(days: 365 * 10));
       _selectedGender = 'ذكر';
@@ -113,20 +124,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
           style: AppTextStyles.headlineMedium,
         ),
       ),
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(AppSpacing.md),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildPersonalInfoSection(),
-              const SizedBox(height: AppSpacing.lg),
+      body: SafeArea(
+        child: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildPersonalInfoSection(),
+                const SizedBox(height: AppSpacing.lg),
 
-              _buildHealthDataSection(),
-              const SizedBox(height: AppSpacing.xl),
-              _buildSaveButton(),
-            ],
+                _buildHealthDataSection(),
+                const SizedBox(height: AppSpacing.xl),
+                _buildSaveButton(),
+              ],
+            ),
           ),
         ),
       ),
@@ -324,9 +337,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.dark(
               primary: AppColors.primary,
-              onPrimary: AppColors.white,
+              onPrimary: AppColors.black,
               surface: AppColors.background,
-              onSurface: AppColors.white,
+              onSurface: AppColors.black,
             ),
           ),
           child: child!,

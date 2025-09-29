@@ -58,6 +58,7 @@ class EntertainmentCategoryPage extends StatelessWidget {
                       final video = videos[index];
                       return VideoCard(
                         title: video.title,
+
                         thumbnailImage: video.thumbnailImage,
                         onTap: () {
                           Navigator.pushNamed(

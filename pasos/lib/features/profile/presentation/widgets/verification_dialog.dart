@@ -48,15 +48,15 @@ class _VerificationDialogState extends State<VerificationDialog> {
                 'التحقق من الهوية',
                 style: AppTextStyles.arabicHeadline.copyWith(fontSize: 22),
               ),
-              const SizedBox(height: AppSpacing.xs),
+              const SizedBox(height: AppSpacing.sm),
               Text(
                 'يرجى إدخال رقم البطاقة الخاص بك للتحقق من هويتك',
                 style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.white.withValues(alpha: 0.7),
+                  color: AppColors.black.withValues(alpha: 0.7),
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: AppSpacing.lg),
+              const SizedBox(height: AppSpacing.sm),
               TextFormField(
                 controller: _cardIdController,
                 textDirection: TextDirection.ltr,
@@ -107,7 +107,12 @@ class _VerificationDialogState extends State<VerificationDialog> {
                                 color: AppColors.white,
                               ),
                             )
-                          : Text('تحقق', style: AppTextStyles.arabicBody),
+                          : Text(
+                              'تحقق',
+                              style: AppTextStyles.arabicBody.copyWith(
+                                color: AppColors.white,
+                              ),
+                            ),
                     ),
                   ),
                 ],

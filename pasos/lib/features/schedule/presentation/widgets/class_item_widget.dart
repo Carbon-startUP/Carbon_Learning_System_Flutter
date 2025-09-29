@@ -15,7 +15,7 @@ class ClassItemWidget extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: AppSpacing.xs),
       padding: const EdgeInsets.all(AppSpacing.sm),
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(alpha: 0.1),
+        color: Colors.grey.shade100,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
       ),
       child: Row(
@@ -52,7 +52,7 @@ class ClassItemWidget extends StatelessWidget {
                   classItem.teacherName,
                   style: AppTextStyles.arabicBody.copyWith(
                     fontSize: 14,
-                    color: AppColors.white.withValues(alpha: 0.8),
+                    color: AppColors.black.withOpacity(0.6),
                   ),
                 ),
               ],

@@ -73,10 +73,8 @@ class AdvertisementCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.transparent,
-            AppColors.background.withValues(alpha: 0.9),
-          ],
+          colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
+          stops: const [0.4, 1.0],
         ),
       ),
     );
@@ -104,7 +102,7 @@ class AdvertisementCard extends StatelessWidget {
               Icon(
                 Icons.location_on_outlined,
                 size: 16,
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.white.withOpacity(0.8),
               ),
               const SizedBox(width: AppSpacing.xxs),
               Expanded(
@@ -112,7 +110,7 @@ class AdvertisementCard extends StatelessWidget {
                   advertisement.locationAr,
                   style: AppTextStyles.bodySmall.copyWith(
                     fontFamily: 'RPT',
-                    color: AppColors.whiteWithOpacity,
+                    color: AppColors.white.withOpacity(0.8),
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -128,6 +126,7 @@ class AdvertisementCard extends StatelessWidget {
                 '${advertisement.price} ${advertisement.priceUnit}',
                 style: AppTextStyles.titleSmall.copyWith(
                   color: AppColors.secondary,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               Row(
@@ -161,7 +160,7 @@ class AdvertisementCard extends StatelessWidget {
     Color? color,
   }) {
     return Material(
-      color: AppColors.whiteWithOpacity.withValues(alpha: 0.2),
+      color: Colors.black.withOpacity(0.3),
       borderRadius: BorderRadius.circular(AppSpacing.radiusRound),
       child: InkWell(
         onTap: onTap,

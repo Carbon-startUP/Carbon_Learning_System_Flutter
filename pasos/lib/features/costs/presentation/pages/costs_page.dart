@@ -47,6 +47,7 @@ class _CostsPageState extends State<CostsPage>
           controller: _tabController,
           indicatorColor: AppColors.secondary,
           labelStyle: AppTextStyles.arabicBody,
+          unselectedLabelColor: AppColors.black.withValues(alpha: 0.6),
           tabs: const [
             Tab(text: 'الأقساط'),
             Tab(text: 'المصروفات الأخرى'),

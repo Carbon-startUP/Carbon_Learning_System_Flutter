@@ -39,7 +39,7 @@ class EmptyChatWidget extends StatelessWidget {
             Text(
               'اطرح أسئلتك أو أرسل ملفاتك\nوسأكون سعيداً لمساعدتك',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
               textAlign: TextAlign.center,
             ),
@@ -105,7 +105,7 @@ class EmptyChatWidget extends StatelessWidget {
         Text(
           'اقتراحات للبدء:',
           style: AppTextStyles.arabicBody.copyWith(
-            color: AppColors.whiteWithOpacity,
+            color: AppColors.blackWithOpacity,
             fontWeight: FontWeight.w600,
           ),
         ),

@@ -25,6 +25,7 @@ class TeacherMeetingsPage extends StatelessWidget {
               style: AppTextStyles.arabicHeadline.copyWith(fontSize: 24),
             ),
             bottom: TabBar(
+              unselectedLabelColor: AppColors.black.withValues(alpha: 0.6),
               indicatorColor: AppColors.primary,
               labelStyle: AppTextStyles.arabicBody,
               tabs: const [

@@ -130,7 +130,7 @@ class ChatMessageWidget extends StatelessWidget {
                       Text(
                         message.fileSize!,
                         style: AppTextStyles.labelSmall.copyWith(
-                          color: AppColors.whiteWithOpacity,
+                          color: AppColors.blackWithOpacity,
                         ),
                       ),
                   ],
@@ -182,7 +182,7 @@ class ChatMessageWidget extends StatelessWidget {
                       Text(
                         message.fileSize!,
                         style: AppTextStyles.labelSmall.copyWith(
-                          color: AppColors.whiteWithOpacity,
+                          color: AppColors.blackWithOpacity,
                         ),
                       ),
                   ],
@@ -207,7 +207,7 @@ class ChatMessageWidget extends StatelessWidget {
     return Text(
       _formatTime(message.timestamp),
       style: AppTextStyles.labelSmall.copyWith(
-        color: AppColors.whiteWithOpacity,
+        color: AppColors.blackWithOpacity,
       ),
     );
   }

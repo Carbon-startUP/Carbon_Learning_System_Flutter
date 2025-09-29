@@ -162,20 +162,20 @@ class _ChatHistoryViewState extends State<ChatHistoryView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.history, size: 64, color: AppColors.whiteWithOpacity),
+            Icon(Icons.history, size: 64, color: AppColors.blackWithOpacity),
             const SizedBox(height: AppSpacing.lg),
             Text(
               'لا توجد محادثات بعد',
               style: AppTextStyles.arabicHeadline.copyWith(
                 fontSize: 20,
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
             ),
             const SizedBox(height: AppSpacing.md),
             Text(
               'ابدأ محادثة جديدة مع المساعد الذكي',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
               textAlign: TextAlign.center,
             ),
@@ -192,20 +192,20 @@ class _ChatHistoryViewState extends State<ChatHistoryView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.search_off, size: 64, color: AppColors.whiteWithOpacity),
+            Icon(Icons.search_off, size: 64, color: AppColors.blackWithOpacity),
             const SizedBox(height: AppSpacing.lg),
             Text(
               'لا توجد نتائج بحث',
               style: AppTextStyles.arabicHeadline.copyWith(
                 fontSize: 20,
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
             ),
             const SizedBox(height: AppSpacing.md),
             Text(
               'جرب البحث بكلمات مختلفة',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
               textAlign: TextAlign.center,
             ),

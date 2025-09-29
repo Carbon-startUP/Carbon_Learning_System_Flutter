@@ -39,7 +39,7 @@ class AdvertisementDetailsSheet extends StatelessWidget {
       width: 40,
       height: 4,
       decoration: BoxDecoration(
-        color: AppColors.whiteWithOpacity,
+        color: AppColors.blackWithOpacity,
         borderRadius: BorderRadius.circular(AppSpacing.radiusRound),
       ),
     );
@@ -79,7 +79,7 @@ class AdvertisementDetailsSheet extends StatelessWidget {
             advertisement.descriptionAr,
             style: AppTextStyles.bodyMedium.copyWith(
               fontFamily: 'RPT',
-              color: AppColors.whiteWithOpacity,
+              color: AppColors.blackWithOpacity,
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
@@ -101,7 +101,7 @@ class AdvertisementDetailsSheet extends StatelessWidget {
           text,
           style: AppTextStyles.bodySmall.copyWith(
             fontFamily: 'RPT',
-            color: AppColors.whiteWithOpacity,
+            color: AppColors.blackWithOpacity,
           ),
         ),
       ],

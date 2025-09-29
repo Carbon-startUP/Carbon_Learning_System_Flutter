@@ -57,7 +57,7 @@ class ProfileInfoCard extends StatelessWidget {
                       'رقم البطاقة: ${profile.cardIdNumber}',
                       style: AppTextStyles.arabicBody.copyWith(
                         fontSize: 12,
-                        color: AppColors.white.withValues(alpha: 0.8),
+                        color: AppColors.white.withOpacity(0.6),
                       ),
                     ),
                   ],
@@ -96,13 +96,13 @@ class ProfileInfoCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 16, color: AppColors.white.withValues(alpha: 0.8)),
+          Icon(icon, size: 16, color: AppColors.white.withOpacity(0.6)),
           const SizedBox(width: AppSpacing.xs),
           Text(
             '$label: ',
             style: AppTextStyles.arabicBody.copyWith(
               fontSize: 14,
-              color: AppColors.white.withValues(alpha: 0.8),
+              color: AppColors.white.withOpacity(0.6),
               fontWeight: FontWeight.w500,
             ),
           ),

@@ -77,7 +77,7 @@ class ChatHistoryItemWidget extends StatelessWidget {
             conversation.title,
             style: AppTextStyles.arabicBody.copyWith(
               fontWeight: FontWeight.w600,
-              color: AppColors.white,
+              color: AppColors.blackWithOpacity,
             ),
             textDirection: TextDirection.rtl,
             maxLines: 1,
@@ -96,7 +96,7 @@ class ChatHistoryItemWidget extends StatelessWidget {
         Text(
           conversation.lastMessagePreview,
           style: AppTextStyles.arabicBody.copyWith(
-            color: AppColors.whiteWithOpacity,
+            color: AppColors.blackWithOpacity,
             fontSize: 12,
           ),
           textDirection: TextDirection.rtl,
@@ -107,7 +107,7 @@ class ChatHistoryItemWidget extends StatelessWidget {
         Text(
           _formatDate(conversation.updatedAt),
           style: AppTextStyles.labelSmall.copyWith(
-            color: AppColors.whiteWithOpacity,
+            color: AppColors.blackWithOpacity,
           ),
         ),
       ],
@@ -116,7 +116,7 @@ class ChatHistoryItemWidget extends StatelessWidget {
 
   Widget _buildTrailing(BuildContext context) {
     return PopupMenuButton<String>(
-      icon: Icon(Icons.more_vert, color: AppColors.whiteWithOpacity),
+      icon: Icon(Icons.more_vert, color: AppColors.blackWithOpacity),
       color: AppColors.background,
       itemBuilder: (context) => [
         PopupMenuItem(
@@ -190,7 +190,7 @@ class ChatHistoryItemWidget extends StatelessWidget {
             child: Text(
               'إلغاء',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
             ),
           ),

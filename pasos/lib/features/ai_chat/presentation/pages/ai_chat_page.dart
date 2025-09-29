@@ -116,7 +116,7 @@ class _AiChatViewState extends State<AiChatView> {
                     Text(
                       title,
                       style: AppTextStyles.titleMedium.copyWith(
-                        color: AppColors.white,
+                        color: AppColors.black,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -139,16 +139,16 @@ class _AiChatViewState extends State<AiChatView> {
       actions: [
         IconButton(
           onPressed: () => _openChatHistory(context),
-          icon: Icon(Icons.history, color: AppColors.white),
+          icon: Icon(Icons.history, color: AppColors.black),
           tooltip: 'سجل المحادثات',
         ),
         IconButton(
           onPressed: () => _showNewChatDialog(context),
-          icon: Icon(Icons.add, color: AppColors.white),
+          icon: Icon(Icons.add, color: AppColors.black),
           tooltip: 'محادثة جديدة',
         ),
         PopupMenuButton<String>(
-          icon: Icon(Icons.more_vert, color: AppColors.white),
+          icon: Icon(Icons.more_vert, color: AppColors.black),
           color: AppColors.background,
           itemBuilder: (context) => [
             PopupMenuItem(
@@ -317,7 +317,7 @@ class _AiChatViewState extends State<AiChatView> {
             child: Text(
               'إلغاء',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
             ),
           ),
@@ -328,7 +328,7 @@ class _AiChatViewState extends State<AiChatView> {
             },
             child: Text(
               'محادثة جديدة',
-              style: AppTextStyles.arabicBody.copyWith(color: AppColors.white),
+              style: AppTextStyles.arabicBody.copyWith(color: AppColors.black),
             ),
           ),
         ],
@@ -357,7 +357,7 @@ class _AiChatViewState extends State<AiChatView> {
             child: Text(
               'إلغاء',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.blackWithOpacity,
               ),
             ),
           ),
@@ -369,7 +369,7 @@ class _AiChatViewState extends State<AiChatView> {
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
             child: Text(
               'مسح',
-              style: AppTextStyles.arabicBody.copyWith(color: AppColors.white),
+              style: AppTextStyles.arabicBody.copyWith(color: AppColors.black),
             ),
           ),
         ],
@@ -397,7 +397,7 @@ class _AiChatViewState extends State<AiChatView> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.whiteWithOpacity,
+                  color: AppColors.blackWithOpacity,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -449,7 +449,7 @@ class _AiChatViewState extends State<AiChatView> {
           Text(
             text,
             style: AppTextStyles.arabicBody.copyWith(
-              color: AppColors.whiteWithOpacity,
+              color: AppColors.blackWithOpacity,
             ),
           ),
         ],

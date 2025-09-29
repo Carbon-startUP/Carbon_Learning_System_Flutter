@@ -56,7 +56,7 @@ class MeetingCardWidget extends StatelessWidget {
               meeting.description,
               style: AppTextStyles.arabicBody.copyWith(
                 fontSize: 14,
-                color: AppColors.white.withValues(alpha: 0.8),
+                color: AppColors.black.withOpacity(0.6),
               ),
             ),
             const SizedBox(height: AppSpacing.md),

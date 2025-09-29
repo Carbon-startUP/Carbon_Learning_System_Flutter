@@ -50,7 +50,7 @@ class _ChatHistorySearchWidgetState extends State<ChatHistorySearchWidget> {
         decoration: InputDecoration(
           hintText: 'البحث في المحادثات...',
           hintStyle: AppTextStyles.arabicBody.copyWith(
-            color: AppColors.whiteWithOpacity,
+            color: AppColors.blackWithOpacity,
           ),
           prefixIcon: Icon(Icons.search, color: AppColors.primary),
           suffixIcon: _controller.text.isNotEmpty
@@ -59,7 +59,7 @@ class _ChatHistorySearchWidgetState extends State<ChatHistorySearchWidget> {
                     _controller.clear();
                     widget.onSearchChanged('');
                   },
-                  icon: Icon(Icons.clear, color: AppColors.whiteWithOpacity),
+                  icon: Icon(Icons.clear, color: AppColors.blackWithOpacity),
                 )
               : null,
           border: InputBorder.none,

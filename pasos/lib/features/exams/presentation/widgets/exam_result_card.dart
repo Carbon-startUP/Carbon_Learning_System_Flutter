@@ -15,7 +15,7 @@ class ExamResultCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: AppSpacing.xs),
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
-        gradient: AppColors.primaryGradient,
+        color: AppColors.primary.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
         boxShadow: [
           BoxShadow(
@@ -30,7 +30,11 @@ class ExamResultCard extends StatelessWidget {
         children: [
           Text(
             result.subjectName,
-            style: AppTextStyles.titleMedium.copyWith(color: AppColors.white),
+            style: AppTextStyles.arabicBody.copyWith(
+              color: AppColors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
           ),
           const SizedBox(height: AppSpacing.sm),
           Row(
@@ -38,11 +42,14 @@ class ExamResultCard extends StatelessWidget {
             children: [
               Text(
                 'الدرجة: ${result.score}/${result.totalScore}',
-                style: AppTextStyles.bodyMedium,
+                style: AppTextStyles.arabicBody.copyWith(
+                  color: AppColors.white,
+                ),
               ),
               Text(
                 'التقدير: ${result.grade}',
-                style: AppTextStyles.bodyMedium.copyWith(
+                style: AppTextStyles.arabicBody.copyWith(
+                  color: AppColors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -51,9 +58,7 @@ class ExamResultCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.xs),
           Text(
             'تاريخ الامتحان: ${result.examDate.day}/${result.examDate.month}/${result.examDate.year}',
-            style: AppTextStyles.bodySmall.copyWith(
-              color: AppColors.white.withValues(alpha: 0.8),
-            ),
+            style: AppTextStyles.bodySmall.copyWith(color: AppColors.white),
           ),
         ],
       ),

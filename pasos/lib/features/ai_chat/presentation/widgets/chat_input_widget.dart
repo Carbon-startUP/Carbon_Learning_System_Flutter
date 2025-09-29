@@ -76,7 +76,7 @@ class _ChatInputWidgetState extends State<ChatInputWidget> {
                 icon: Icon(
                   Icons.attach_file,
                   color: widget.isLoading
-                      ? AppColors.whiteWithOpacity
+                      ? AppColors.blackWithOpacity
                       : AppColors.secondary,
                 ),
               ),
@@ -100,7 +100,7 @@ class _ChatInputWidgetState extends State<ChatInputWidget> {
                   decoration: InputDecoration(
                     hintText: 'اكتب رسالتك هنا...',
                     hintStyle: AppTextStyles.arabicBody.copyWith(
-                      color: AppColors.whiteWithOpacity,
+                      color: AppColors.blackWithOpacity,
                     ),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
@@ -119,7 +119,7 @@ class _ChatInputWidgetState extends State<ChatInputWidget> {
             Container(
               decoration: BoxDecoration(
                 gradient: _canSend ? AppColors.primaryGradient : null,
-                color: _canSend ? null : AppColors.whiteWithOpacity,
+                color: _canSend ? null : AppColors.blackWithOpacity,
                 shape: BoxShape.circle,
               ),
               child: IconButton(

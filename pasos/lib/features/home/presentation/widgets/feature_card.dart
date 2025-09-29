@@ -32,11 +32,7 @@ class BuildFeatureCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(AppSpacing.md),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: gradientColors,
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          color: const Color(0xFF9872FE),
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
         ),
         child: Row(

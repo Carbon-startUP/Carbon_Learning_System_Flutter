@@ -70,7 +70,7 @@ class InstallmentItemWidget extends StatelessWidget {
                     'طريقة الدفع',
                     style: AppTextStyles.arabicBody.copyWith(
                       fontSize: 12,
-                      color: AppColors.white.withValues(alpha: 0.6),
+                      color: AppColors.black.withValues(alpha: 0.6),
                     ),
                   ),
                   Text(
@@ -86,7 +86,7 @@ class InstallmentItemWidget extends StatelessWidget {
                     'تاريخ الدفع',
                     style: AppTextStyles.arabicBody.copyWith(
                       fontSize: 12,
-                      color: AppColors.white.withValues(alpha: 0.6),
+                      color: AppColors.black.withValues(alpha: 0.6),
                     ),
                   ),
                   Text(
@@ -102,7 +102,7 @@ class InstallmentItemWidget extends StatelessWidget {
                     'تاريخ الاستحقاق',
                     style: AppTextStyles.arabicBody.copyWith(
                       fontSize: 12,
-                      color: AppColors.white.withValues(alpha: 0.6),
+                      color: AppColors.black.withValues(alpha: 0.6),
                     ),
                   ),
                   Text(
@@ -112,7 +112,7 @@ class InstallmentItemWidget extends StatelessWidget {
                           installment.dueDate.isBefore(DateTime.now()) &&
                               installment.remainingAmount > 0
                           ? AppColors.error
-                          : AppColors.white,
+                          : AppColors.black,
                     ),
                   ),
                 ],

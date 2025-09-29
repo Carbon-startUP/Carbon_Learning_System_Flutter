@@ -67,7 +67,7 @@ class _TypingIndicatorWidgetState extends State<TypingIndicatorWidget>
                   Text(
                     'جاري الكتابة',
                     style: AppTextStyles.arabicBody.copyWith(
-                      color: AppColors.whiteWithOpacity,
+                      color: AppColors.blackWithOpacity,
                     ),
                   ),
                   const SizedBox(width: AppSpacing.xs),

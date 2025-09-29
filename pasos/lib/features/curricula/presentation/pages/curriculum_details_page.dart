@@ -22,44 +22,46 @@ class CurriculumDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(curriculum.title, style: AppTextStyles.titleMedium),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(AppSpacing.md),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              curriculum.title,
-              style: AppTextStyles.headlineSmall.copyWith(fontFamily: 'RPT'),
-              textDirection: TextDirection.rtl,
-            ),
-            const SizedBox(height: AppSpacing.sm),
-            Text(
-              'المادة: ${curriculum.subject}',
-              style: AppTextStyles.bodyLarge.copyWith(fontFamily: 'RPT'),
-              textDirection: TextDirection.rtl,
-            ),
-            const SizedBox(height: AppSpacing.xs),
-            Text(
-              'الصف: ${curriculum.grade}',
-              style: AppTextStyles.bodyLarge.copyWith(fontFamily: 'RPT'),
-              textDirection: TextDirection.rtl,
-            ),
-            const SizedBox(height: AppSpacing.md),
-            Text(
-              curriculum.description,
-              style: AppTextStyles.bodyMedium.copyWith(fontFamily: 'RPT'),
-              textDirection: TextDirection.rtl,
-            ),
-            const Spacer(),
-            ElevatedButton(
-              onPressed: () => _launchURL(curriculum.fileUrl),
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                curriculum.title,
+                style: AppTextStyles.headlineSmall.copyWith(fontFamily: 'RPT'),
+                textDirection: TextDirection.rtl,
               ),
-              child: Text('فتح المادة الدراسية'),
-            ),
-            const SizedBox(height: AppSpacing.lg),
-          ],
+              const SizedBox(height: AppSpacing.sm),
+              Text(
+                'المادة: ${curriculum.subject}',
+                style: AppTextStyles.bodyLarge.copyWith(fontFamily: 'RPT'),
+                textDirection: TextDirection.rtl,
+              ),
+              const SizedBox(height: AppSpacing.xs),
+              Text(
+                'الصف: ${curriculum.grade}',
+                style: AppTextStyles.bodyLarge.copyWith(fontFamily: 'RPT'),
+                textDirection: TextDirection.rtl,
+              ),
+              const SizedBox(height: AppSpacing.md),
+              Text(
+                curriculum.description,
+                style: AppTextStyles.bodyMedium.copyWith(fontFamily: 'RPT'),
+                textDirection: TextDirection.rtl,
+              ),
+              const Spacer(),
+              ElevatedButton(
+                onPressed: () => _launchURL(curriculum.fileUrl),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 50),
+                ),
+                child: Text('فتح المادة الدراسية'),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+            ],
+          ),
         ),
       ),
     );

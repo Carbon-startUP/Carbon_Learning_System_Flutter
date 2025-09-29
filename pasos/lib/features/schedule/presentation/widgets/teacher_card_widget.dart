@@ -15,8 +15,15 @@ class TeacherCardWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: AppSpacing.md),
       decoration: BoxDecoration(
-        gradient: AppColors.primaryGradient.scale(0.1),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
         border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Padding(
@@ -71,7 +78,7 @@ class TeacherCardWidget extends StatelessWidget {
                 Icon(
                   Icons.email,
                   size: 16,
-                  color: AppColors.white.withValues(alpha: 0.7),
+                  color: AppColors.black.withOpacity(0.6),
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(teacher.email, style: AppTextStyles.bodySmall),

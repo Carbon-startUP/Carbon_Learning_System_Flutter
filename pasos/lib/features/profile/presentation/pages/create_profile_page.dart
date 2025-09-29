@@ -78,7 +78,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
               Text(
                 'سيتم استخدام هذا للتحقق من هويتك',
                 style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.white.withValues(alpha: 0.8),
+                  color: AppColors.black.withOpacity(0.6),
                 ),
                 textAlign: TextAlign.center,
               ),

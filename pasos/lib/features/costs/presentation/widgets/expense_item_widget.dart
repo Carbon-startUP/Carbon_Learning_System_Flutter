@@ -106,7 +106,7 @@ class ExpenseItemWidget extends StatelessWidget {
                       expense.dueDate.isBefore(DateTime.now()) &&
                           !expense.isPaid
                       ? AppColors.error
-                      : AppColors.white.withValues(alpha: 0.6),
+                      : AppColors.black,
                 ),
               ),
               if (!expense.isPaid && expense.dueDate.isBefore(DateTime.now()))

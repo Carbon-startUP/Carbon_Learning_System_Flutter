@@ -36,7 +36,7 @@ class BuildHeader extends StatelessWidget {
         Text(
           'سجل دخولك للمتابعة',
           style: AppTextStyles.arabicBody.copyWith(
-            color: AppColors.white.withValues(alpha: 0.8),
+            color: AppColors.black.withOpacity(0.6),
           ),
           textDirection: TextDirection.rtl,
         ),

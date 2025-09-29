@@ -16,60 +16,57 @@ class LoginPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(gradient: AppColors.primaryGradient),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(AppSpacing.horizontalPadding),
-              child: BlocListener<LoginCubit, LoginState>(
-                listener: (context, state) {
-                  if (state is LoginSuccess) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          state.message,
-                          textDirection: TextDirection.rtl,
-                        ),
-                        backgroundColor: AppColors.success,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(AppSpacing.horizontalPadding),
+            child: BlocListener<LoginCubit, LoginState>(
+              listener: (context, state) {
+                if (state is LoginSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        state.message,
+                        textDirection: TextDirection.rtl,
                       ),
-                    );
-                    context.read<AuthCubit>().login(state.userRole);
-                  } else if (state is LoginError) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          state.message,
-                          textDirection: TextDirection.rtl,
-                        ),
-                        backgroundColor: AppColors.error,
+                      backgroundColor: AppColors.success,
+                    ),
+                  );
+                  context.read<AuthCubit>().login(state.userRole);
+                } else if (state is LoginError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        state.message,
+                        textDirection: TextDirection.rtl,
                       ),
-                    );
-                  }
+                      backgroundColor: AppColors.error,
+                    ),
+                  );
+                }
+              },
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.1,
+                          ),
+                          BuildHeader(),
+                          const SizedBox(height: AppSpacing.xl),
+                          const LoginForm(),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
                 },
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return SingleChildScrollView(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: constraints.maxHeight,
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.1,
-                            ),
-                            BuildHeader(),
-                            const SizedBox(height: AppSpacing.xxxl),
-                            const LoginForm(),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.2,
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
               ),
             ),
           ),

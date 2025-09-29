@@ -111,16 +111,16 @@ class AdvertisementsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: AppColors.primary),
+          side: BorderSide(color: Colors.grey.shade300),
         ),
         title: Text(
           'تأكيد الاشتراك',
           style: AppTextStyles.titleMedium.copyWith(
             fontFamily: 'RPT',
-            color: AppColors.secondary,
+            color: AppColors.textPrimary,
           ),
         ),
         content: Text(
@@ -134,7 +134,7 @@ class AdvertisementsPage extends StatelessWidget {
               'إلغاء',
               style: AppTextStyles.labelLarge.copyWith(
                 fontFamily: 'RPT',
-                color: AppColors.whiteWithOpacity,
+                color: AppColors.black.withOpacity(0.6),
               ),
             ),
           ),

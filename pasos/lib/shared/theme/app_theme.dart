@@ -71,10 +71,10 @@ class AppTheme {
           borderSide: BorderSide(color: AppColors.primary, width: 2),
         ),
         labelStyle: AppTextStyles.bodyMedium.copyWith(
-          color: AppColors.white.withValues(alpha: 0.7),
+          color: AppColors.black.withValues(alpha: 0.7),
         ),
         hintStyle: AppTextStyles.bodyMedium.copyWith(
-          color: AppColors.white.withValues(alpha: 0.5),
+          color: AppColors.black.withValues(alpha: 0.5),
         ),
       ),
     );

@@ -58,9 +58,9 @@ class _LoginFormState extends State<LoginForm> {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: AppColors.white.withValues(alpha: 0.1),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(AppSpacing.radiusXLarge),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.2)),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: Form(
         key: _formKey,
@@ -88,7 +88,7 @@ class _LoginFormState extends State<LoginForm> {
               suffixIcon: IconButton(
                 icon: Icon(
                   _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
-                  color: AppColors.white.withValues(alpha: 0.7),
+                  color: AppColors.black.withValues(alpha: 0.5),
                 ),
                 onPressed: () {
                   setState(() {
@@ -140,7 +140,7 @@ class _LoginFormState extends State<LoginForm> {
                           )
                         : Text(
                             'تسجيل الدخول',
-                            style: AppTextStyles.arabicBody.copyWith(
+                            style: AppTextStyles.buttonTextarabic.copyWith(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
@@ -156,7 +156,7 @@ class _LoginFormState extends State<LoginForm> {
               child: Text(
                 'نسيت كلمة المرور؟',
                 style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.white.withValues(alpha: 0.8),
+                  color: AppColors.primary,
                   decoration: TextDecoration.underline,
                 ),
                 textDirection: TextDirection.rtl,

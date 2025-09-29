@@ -135,7 +135,12 @@ class _ProfilePageState extends State<ProfilePage> {
             ElevatedButton.icon(
               onPressed: () => _showVerificationDialog(context),
               icon: const Icon(Icons.verified_user),
-              label: Text('التحقق من الهوية', style: AppTextStyles.arabicBody),
+              label: Text(
+                'التحقق من الهوية',
+                style: AppTextStyles.arabicBody.copyWith(
+                  color: AppColors.white,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                   horizontal: AppSpacing.lg,

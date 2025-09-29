@@ -35,23 +35,23 @@ class CustomTextField extends StatelessWidget {
       textDirection: textDirection,
       keyboardType: keyboardType,
       validator: validator,
-      style: AppTextStyles.arabicBody.copyWith(color: AppColors.white),
+      style: AppTextStyles.arabicBody.copyWith(color: AppColors.textPrimary),
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
         prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, color: AppColors.white.withValues(alpha: 0.7))
+            ? Icon(prefixIcon, color: AppColors.black.withOpacity(0.5))
             : null,
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: AppColors.white.withValues(alpha: 0.1),
+        fillColor: Colors.grey.withOpacity(0.08),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-          borderSide: BorderSide(color: AppColors.white.withValues(alpha: 0.3)),
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-          borderSide: BorderSide(color: AppColors.white.withValues(alpha: 0.3)),
+          borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
@@ -66,10 +66,10 @@ class CustomTextField extends StatelessWidget {
           borderSide: const BorderSide(color: AppColors.error, width: 2),
         ),
         labelStyle: AppTextStyles.arabicBody.copyWith(
-          color: AppColors.white.withValues(alpha: 0.7),
+          color: AppColors.black.withValues(alpha: 0.6),
         ),
         hintStyle: AppTextStyles.arabicBody.copyWith(
-          color: AppColors.white.withValues(alpha: 0.5),
+          color: AppColors.black.withValues(alpha: 0.4),
         ),
         errorStyle: AppTextStyles.arabicBody.copyWith(
           color: AppColors.error,

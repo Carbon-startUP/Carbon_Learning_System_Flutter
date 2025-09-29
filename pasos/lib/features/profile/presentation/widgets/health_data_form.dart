@@ -19,14 +19,8 @@ class HealthDataForm extends StatefulWidget {
 }
 
 class _HealthDataFormState extends State<HealthDataForm> {
-  late TextEditingController _heightController;
-  late TextEditingController _weightController;
-  late TextEditingController _emergencyContactController;
-  late TextEditingController _emergencyPhoneController;
   late String _selectedBloodType;
-  late List<String> _allergies;
   late List<String> _chronicConditions;
-  late List<String> _medications;
 
   final List<String> _bloodTypes = [
     'A+',
@@ -91,56 +85,7 @@ class _HealthDataFormState extends State<HealthDataForm> {
         ),
 
         const SizedBox(height: AppSpacing.md),
-        Row(
-          children: [
-            Expanded(
-              child: TextFormField(
-                controller: _heightController,
-                decoration: InputDecoration(
-                  labelText: 'الطول (سم)',
-                  labelStyle: AppTextStyles.arabicBody,
-                  prefixIcon: const Icon(
-                    Icons.height,
-                    color: AppColors.primary,
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-                onChanged: (_) => _updateHealthData(),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال الطول';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            const SizedBox(width: AppSpacing.md),
-            Expanded(
-              child: TextFormField(
-                controller: _weightController,
-                decoration: InputDecoration(
-                  labelText: 'الوزن (كجم)',
-                  labelStyle: AppTextStyles.arabicBody,
-                  prefixIcon: const Icon(
-                    Icons.monitor_weight,
-                    color: AppColors.primary,
-                  ),
-                ),
-                keyboardType: TextInputType.number,
-                onChanged: (_) => _updateHealthData(),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'يرجى إدخال الوزن';
-                  }
-                  return null;
-                },
-              ),
-            ),
-          ],
-        ),
-
-        const SizedBox(height: AppSpacing.md),
-        _buildListSection('الحساسية', _allergies, Icons.warning),
+        Row(children: [const SizedBox(width: AppSpacing.md)]),
 
         const SizedBox(height: AppSpacing.md),
         _buildListSection(
@@ -252,7 +197,12 @@ class _HealthDataFormState extends State<HealthDataForm> {
                   Navigator.of(context).pop();
                 }
               },
-              child: Text('إضافة', style: AppTextStyles.arabicBody),
+              child: Text(
+                'إضافة',
+                style: AppTextStyles.arabicBody.copyWith(
+                  color: AppColors.white,
+                ),
+              ),
             ),
           ],
         );
@@ -264,17 +214,12 @@ class _HealthDataFormState extends State<HealthDataForm> {
     final healthData = HealthDataModel(
       bloodType: _selectedBloodType,
       chronicConditions: _chronicConditions,
-      currentMedications: _medications,
     );
     widget.onHealthDataChanged(healthData);
   }
 
   @override
   void dispose() {
-    _heightController.dispose();
-    _weightController.dispose();
-    _emergencyContactController.dispose();
-    _emergencyPhoneController.dispose();
     super.dispose();
   }
 }

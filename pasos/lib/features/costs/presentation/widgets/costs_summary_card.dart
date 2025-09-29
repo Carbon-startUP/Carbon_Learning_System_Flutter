@@ -60,8 +60,8 @@ class CostsSummaryCard extends StatelessWidget {
         Text(
           label,
           style: AppTextStyles.arabicBody.copyWith(
-            color: AppColors.white.withValues(alpha: 0.8),
-            fontSize: 12,
+            color: AppColors.white,
+            fontSize: 14,
           ),
         ),
         const SizedBox(height: AppSpacing.xs),

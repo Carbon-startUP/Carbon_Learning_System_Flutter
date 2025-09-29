@@ -36,7 +36,7 @@ class ScheduleDayWidget extends StatelessWidget {
           '${schedule.classes.length} حصص',
           style: AppTextStyles.arabicBody.copyWith(
             fontSize: 14,
-            color: AppColors.white.withValues(alpha: 0.7),
+            color: AppColors.black.withValues(alpha: 0.7),
           ),
         ),
         children: schedule.classes.map((classItem) {

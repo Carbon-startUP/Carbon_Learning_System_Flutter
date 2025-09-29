@@ -26,7 +26,14 @@ class CurriculumListItem extends StatelessWidget {
         padding: const EdgeInsets.all(AppSpacing.md),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-          gradient: AppColors.primaryGradient,
+          color: AppColors.primary.withValues(alpha: 0.8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.1),
+              blurRadius: 6,
+              offset: const Offset(0, 3),
+            ),
+          ],
         ),
         child: Row(
           children: [
@@ -53,7 +60,7 @@ class CurriculumListItem extends StatelessWidget {
                   Text(
                     '${curriculum.subject} - ${curriculum.grade}',
                     style: AppTextStyles.bodySmall.copyWith(
-                      color: AppColors.white.withValues(alpha: 0.8),
+                      color: AppColors.white.withOpacity(0.6),
                     ),
                     textDirection: TextDirection.rtl,
                   ),

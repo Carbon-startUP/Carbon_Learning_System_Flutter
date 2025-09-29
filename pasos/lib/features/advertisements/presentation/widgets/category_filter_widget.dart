@@ -41,7 +41,7 @@ class CategoryFilterWidget extends StatelessWidget {
                   fontFamily: 'RPT',
                   color: isSelected
                       ? AppColors.white
-                      : AppColors.whiteWithOpacity,
+                      : AppColors.blackWithOpacity,
                 ),
               ),
               selected: isSelected,
@@ -52,7 +52,7 @@ class CategoryFilterWidget extends StatelessWidget {
               side: BorderSide(
                 color: isSelected
                     ? AppColors.primary
-                    : AppColors.whiteWithOpacity,
+                    : AppColors.blackWithOpacity,
                 width: 1,
               ),
             ),

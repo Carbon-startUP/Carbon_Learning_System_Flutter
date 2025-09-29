@@ -82,6 +82,7 @@ class VideoCard extends StatelessWidget {
                   child: Text(
                     title,
                     style: AppTextStyles.arabicBody.copyWith(
+                      color: AppColors.white,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
