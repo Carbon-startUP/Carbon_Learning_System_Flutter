@@ -9,6 +9,7 @@ import 'package:pasos/features/curricula/presentation/pages/curriculum_details_p
 import 'package:pasos/features/entertainment/presentation/pages/entertainment_category_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/entertainment_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/video_player_page.dart';
+import 'package:pasos/features/exams/presentation/pages/exam_results_page.dart';
 import 'package:pasos/features/home/presentation/pages/home_page.dart';
 import 'package:pasos/features/ai_chat/presentation/pages/chat_history_page.dart';
 import 'package:pasos/features/profile/presentation/pages/create_profile_page.dart';
@@ -40,6 +41,7 @@ class AppRouter {
   static const String requestMeeting = '/request-meeting';
   static const String curricula = '/curricula';
   static const String curriculumDetails = '/curriculum-details';
+  static const String examResults = '/exam-results';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -96,6 +98,8 @@ class AppRouter {
         return _buildPageRoute(const AdvertisementsPage());
       case curricula:
         return _buildPageRoute(const CurriculaPage());
+      case examResults:
+        return _buildPageRoute(const ExamResultsPage());
       case curriculumDetails:
         final curriculum = settings.arguments as CurriculumModel;
         return _buildPageRoute(CurriculumDetailsPage(curriculum: curriculum));

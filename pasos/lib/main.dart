@@ -5,6 +5,8 @@ import 'package:pasos/features/ai_chat/presentation/cubit/ai_chat_cubit.dart';
 import 'package:pasos/features/costs/presentation/cubit/costs_cubit.dart';
 import 'package:pasos/features/curricula/data/Repository/curricula_repository.dart';
 import 'package:pasos/features/curricula/presentation/cubit/curricula_cubit.dart';
+import 'package:pasos/features/exams/data/repositories/exam_repository.dart';
+import 'package:pasos/features/exams/presentation/cubit/exam_results_cubit.dart';
 import 'package:pasos/features/profile/data/repositories/profile_repository.dart';
 import 'package:pasos/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:pasos/features/schedule/data/repositories/schedule_repository.dart';
@@ -30,6 +32,9 @@ void main() {
         BlocProvider<CurriculaCubit>(
           create: (BuildContext context) =>
               CurriculaCubit(CurriculaRepository()),
+        ),
+        BlocProvider<ExamResultsCubit>(
+          create: (BuildContext context) => ExamResultsCubit(ExamRepository()),
         ),
       ],
       child: const MyApp(),
