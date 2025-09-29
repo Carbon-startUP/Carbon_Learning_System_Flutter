@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class UserProfileModel {
   final String id;
   final String cardIdNumber;
@@ -35,9 +33,7 @@ class UserProfileModel {
     'email': email,
     'address': address,
     'lastUpdated': lastUpdated?.toIso8601String(),
-    'childrenIds': childrenIds.join(
-      ',',
-    ), // Convert list to comma-separated string
+    'childrenIds': childrenIds.join(','),
   };
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>

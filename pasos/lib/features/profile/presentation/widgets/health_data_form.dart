@@ -243,7 +243,7 @@ class _HealthDataFormState extends State<HealthDataForm> {
                   item,
                   style: AppTextStyles.arabicBody.copyWith(fontSize: 12),
                 ),
-                backgroundColor: AppColors.primary.withOpacity(0.1),
+                backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                 deleteIcon: const Icon(Icons.close, size: 16),
                 deleteIconColor: AppColors.error,
                 onDeleted: () {
@@ -262,7 +262,7 @@ class _HealthDataFormState extends State<HealthDataForm> {
               'لم يتم إضافة $title',
               style: AppTextStyles.arabicBody.copyWith(
                 fontSize: 12,
-                color: AppColors.white.withOpacity(0.5),
+                color: AppColors.white.withValues(alpha: 0.5),
               ),
             ),
           ),
@@ -285,9 +285,9 @@ class _HealthDataFormState extends State<HealthDataForm> {
           content: TextField(
             autofocus: true,
             decoration: InputDecoration(
-              hintText: 'أدخل ${title}',
+              hintText: 'أدخل $title',
               hintStyle: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.white.withOpacity(0.5),
+                color: AppColors.white.withValues(alpha: 0.5),
               ),
             ),
             style: AppTextStyles.arabicBody,

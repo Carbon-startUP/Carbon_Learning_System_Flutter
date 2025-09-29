@@ -30,9 +30,7 @@ class ChildProfileModel {
     'gender': gender,
     'schoolName': schoolName,
     'grade': grade,
-    'healthData': jsonEncode(
-      healthData.toJson(),
-    ), // Convert to JSON string for SQLite
+    'healthData': jsonEncode(healthData.toJson()),
   };
 
   factory ChildProfileModel.fromJson(Map<String, dynamic> json) =>

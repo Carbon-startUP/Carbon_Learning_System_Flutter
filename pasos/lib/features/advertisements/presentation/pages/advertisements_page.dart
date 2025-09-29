@@ -10,7 +10,7 @@ import '../widgets/category_filter_widget.dart';
 import '../widgets/advertisement_details_sheet.dart';
 
 class AdvertisementsPage extends StatelessWidget {
-  const AdvertisementsPage({Key? key}) : super(key: key);
+  const AdvertisementsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

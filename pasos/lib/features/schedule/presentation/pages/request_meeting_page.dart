@@ -149,7 +149,7 @@ class _RequestMeetingPageState extends State<RequestMeetingPage> {
                         padding: const EdgeInsets.all(AppSpacing.md),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: AppColors.primary.withOpacity(0.3),
+                            color: AppColors.primary.withValues(alpha: 0.3),
                           ),
                           borderRadius: BorderRadius.circular(
                             AppSpacing.radiusMedium,

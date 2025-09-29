@@ -51,7 +51,6 @@ class CostsDatabaseHelper {
     );
   }
 
-  // Installments operations
   Future<int> insertInstallment(InstallmentModel installment) async {
     final db = await database;
     return await db.insert('installments', installment.toMap());
@@ -78,7 +77,6 @@ class CostsDatabaseHelper {
     return await db.delete('installments', where: 'id = ?', whereArgs: [id]);
   }
 
-  // Expenses operations
   Future<int> insertExpense(ExpenseModel expense) async {
     final db = await database;
     return await db.insert('expenses', expense.toMap());

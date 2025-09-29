@@ -10,11 +10,11 @@ class AdvertisementCard extends StatelessWidget {
   final VoidCallback onDetails;
 
   const AdvertisementCard({
-    Key? key,
+    super.key,
     required this.advertisement,
     required this.onSubscribe,
     required this.onDetails,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class AdvertisementCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.black.withValues(alpha: 0.2),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -54,7 +54,7 @@ class AdvertisementCard extends StatelessWidget {
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) {
           return Container(
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
             child: const Icon(
               Icons.image_not_supported,
               color: AppColors.white,
@@ -73,7 +73,10 @@ class AdvertisementCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Colors.transparent, AppColors.background.withOpacity(0.9)],
+          colors: [
+            Colors.transparent,
+            AppColors.background.withValues(alpha: 0.9),
+          ],
         ),
       ),
     );
@@ -158,7 +161,7 @@ class AdvertisementCard extends StatelessWidget {
     Color? color,
   }) {
     return Material(
-      color: AppColors.whiteWithOpacity.withOpacity(0.2),
+      color: AppColors.whiteWithOpacity.withValues(alpha: 0.2),
       borderRadius: BorderRadius.circular(AppSpacing.radiusRound),
       child: InkWell(
         onTap: onTap,

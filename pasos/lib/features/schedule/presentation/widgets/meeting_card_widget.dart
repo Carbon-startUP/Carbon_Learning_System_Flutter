@@ -17,7 +17,7 @@ class MeetingCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient.scale(0.1),
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
@@ -56,7 +56,7 @@ class MeetingCardWidget extends StatelessWidget {
               meeting.description,
               style: AppTextStyles.arabicBody.copyWith(
                 fontSize: 14,
-                color: AppColors.white.withOpacity(0.8),
+                color: AppColors.white.withValues(alpha: 0.8),
               ),
             ),
             const SizedBox(height: AppSpacing.md),
@@ -65,7 +65,7 @@ class MeetingCardWidget extends StatelessWidget {
                 Icon(
                   Icons.calendar_today,
                   size: 16,
-                  color: AppColors.white.withOpacity(0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(
@@ -76,7 +76,7 @@ class MeetingCardWidget extends StatelessWidget {
                 Icon(
                   Icons.access_time,
                   size: 16,
-                  color: AppColors.white.withOpacity(0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(meeting.timeSlot, style: AppTextStyles.bodySmall),
@@ -117,7 +117,7 @@ class MeetingCardWidget extends StatelessWidget {
         vertical: AppSpacing.xxs,
       ),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
+        color: color.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(AppSpacing.radiusRound),
         border: Border.all(color: color),
       ),

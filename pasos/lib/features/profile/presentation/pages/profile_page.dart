@@ -127,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ? state.message
                   : 'يرجى التحقق من هويتك للوصول إلى معلومات ملفك الشخصي وإدارتها',
               style: AppTextStyles.arabicBody.copyWith(
-                color: AppColors.white.withOpacity(0.7),
+                color: AppColors.white.withValues(alpha: 0.7),
               ),
               textAlign: TextAlign.center,
             ),
@@ -190,22 +190,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.all(AppSpacing.lg),
                 margin: const EdgeInsets.only(top: AppSpacing.lg),
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
+                  color: AppColors.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-                  border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+                  border: Border.all(
+                    color: AppColors.primary.withValues(alpha: 0.3),
+                  ),
                 ),
                 child: Column(
                   children: [
                     Icon(
                       Icons.child_care,
                       size: 48,
-                      color: AppColors.secondary.withOpacity(0.5),
+                      color: AppColors.secondary.withValues(alpha: 0.5),
                     ),
                     const SizedBox(height: AppSpacing.md),
                     Text(
                       'لا توجد ملفات أطفال حتى الآن',
                       style: AppTextStyles.arabicBody.copyWith(
-                        color: AppColors.white.withOpacity(0.7),
+                        color: AppColors.white.withValues(alpha: 0.7),
                       ),
                     ),
                     const SizedBox(height: AppSpacing.xs),
@@ -213,7 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       'اضغط على زر + لإضافة ملف طفل',
                       style: AppTextStyles.arabicBody.copyWith(
                         fontSize: 12,
-                        color: AppColors.white.withOpacity(0.5),
+                        color: AppColors.white.withValues(alpha: 0.5),
                       ),
                     ),
                   ],

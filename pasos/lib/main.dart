@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pasos/core/navigation/app_router.dart';
 import 'package:pasos/features/ai_chat/presentation/cubit/ai_chat_cubit.dart';
-import 'package:pasos/features/costs/data/repositories/costs_repository.dart';
 import 'package:pasos/features/costs/presentation/cubit/costs_cubit.dart';
+import 'package:pasos/features/curricula/data/Repository/curricula_repository.dart';
+import 'package:pasos/features/curricula/presentation/cubit/curricula_cubit.dart';
 import 'package:pasos/features/profile/data/repositories/profile_repository.dart';
 import 'package:pasos/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:pasos/features/schedule/data/repositories/schedule_repository.dart';
@@ -26,6 +27,10 @@ void main() {
         BlocProvider<ScheduleCubit>(
           create: (BuildContext context) => ScheduleCubit(ScheduleRepository()),
         ),
+        BlocProvider<CurriculaCubit>(
+          create: (BuildContext context) =>
+              CurriculaCubit(CurriculaRepository()),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -38,7 +43,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: Locale('ar'),
       title: 'Pasos',
+      builder: (context, child) {
+        return Directionality(textDirection: TextDirection.rtl, child: child!);
+      },
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.lightTheme,

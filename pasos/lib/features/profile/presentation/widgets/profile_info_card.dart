@@ -18,7 +18,7 @@ class ProfileInfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
@@ -32,7 +32,7 @@ class ProfileInfoCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(AppSpacing.sm),
                 decoration: BoxDecoration(
-                  color: AppColors.white.withOpacity(0.2),
+                  color: AppColors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(AppSpacing.radiusRound),
                 ),
                 child: const Icon(
@@ -57,7 +57,7 @@ class ProfileInfoCard extends StatelessWidget {
                       'رقم البطاقة: ${profile.cardIdNumber}',
                       style: AppTextStyles.arabicBody.copyWith(
                         fontSize: 12,
-                        color: AppColors.white.withOpacity(0.8),
+                        color: AppColors.white.withValues(alpha: 0.8),
                       ),
                     ),
                   ],
@@ -96,13 +96,13 @@ class ProfileInfoCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 16, color: AppColors.white.withOpacity(0.8)),
+          Icon(icon, size: 16, color: AppColors.white.withValues(alpha: 0.8)),
           const SizedBox(width: AppSpacing.xs),
           Text(
             '$label: ',
             style: AppTextStyles.arabicBody.copyWith(
               fontSize: 14,
-              color: AppColors.white.withOpacity(0.8),
+              color: AppColors.white.withValues(alpha: 0.8),
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -111,7 +111,7 @@ class ProfileInfoCard extends StatelessWidget {
               text,
               style: AppTextStyles.arabicBody.copyWith(
                 fontSize: 14,
-                color: AppColors.white.withOpacity(0.9),
+                color: AppColors.white.withValues(alpha: 0.9),
               ),
             ),
           ),

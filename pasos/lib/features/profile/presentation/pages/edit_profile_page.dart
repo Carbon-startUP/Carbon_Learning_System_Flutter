@@ -36,7 +36,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late String _selectedGender;
   late HealthDataModel _healthData;
 
-  // Gender mapping
   final Map<String, String> _genderMap = {'Male': 'ذكر', 'Female': 'أنثى'};
 
   final Map<String, String> _reverseGenderMap = {
@@ -56,7 +55,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
         text: widget.profile.fullName,
       );
       _selectedDate = widget.profile.dateOfBirth;
-      // Convert stored English gender to Arabic for display
       _selectedGender = _genderMap[widget.profile.gender] ?? 'ذكر';
 
       if (widget.isChild) {
@@ -74,7 +72,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
         _addressController = TextEditingController(text: user.address);
         _schoolController = TextEditingController();
         _gradeController = TextEditingController();
-        // If user doesn't have health data, create default
         _healthData = HealthDataModel(
           bloodType: 'O+',
           height: 170,
@@ -84,17 +81,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
         );
       }
     } else {
-      // Initialize for new profile
       _fullNameController = TextEditingController();
       _phoneController = TextEditingController();
       _emailController = TextEditingController();
       _addressController = TextEditingController();
       _schoolController = TextEditingController();
       _gradeController = TextEditingController();
-      _selectedDate = DateTime.now().subtract(
-        const Duration(days: 365 * 10),
-      ); // Default age ~10 years for child
-      _selectedGender = 'ذكر'; // Default to male in Arabic
+      _selectedDate = DateTime.now().subtract(const Duration(days: 365 * 10));
+      _selectedGender = 'ذكر';
       _healthData = HealthDataModel(
         bloodType: 'O+',
         height: 100,
@@ -322,7 +316,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     if (_formKey.currentState!.validate()) {
       final cubit = context.read<ProfileCubit>();
 
-      // Convert Arabic gender back to English for storage
       final englishGender = _reverseGenderMap[_selectedGender] ?? 'Male';
 
       if (widget.isChild) {
@@ -332,7 +325,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             parentId: cubit.currentUserProfile!.id,
             fullName: _fullNameController.text,
             dateOfBirth: _selectedDate,
-            gender: englishGender, // Use English gender
+            gender: englishGender,
             schoolName: _schoolController.text.isEmpty
                 ? null
                 : _schoolController.text,
@@ -345,7 +338,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           final updatedChild = child.copyWith(
             fullName: _fullNameController.text,
             dateOfBirth: _selectedDate,
-            gender: englishGender, // Use English gender
+            gender: englishGender,
             schoolName: _schoolController.text.isEmpty
                 ? null
                 : _schoolController.text,
@@ -359,7 +352,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         final updatedUser = user.copyWith(
           fullName: _fullNameController.text,
           dateOfBirth: _selectedDate,
-          gender: englishGender, // Use English gender
+          gender: englishGender,
           phoneNumber: _phoneController.text,
           email: _emailController.text,
           address: _addressController.text,

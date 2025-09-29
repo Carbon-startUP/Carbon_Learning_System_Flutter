@@ -52,7 +52,7 @@ class _VerificationDialogState extends State<VerificationDialog> {
               Text(
                 'يرجى إدخال رقم البطاقة الخاص بك للتحقق من هويتك',
                 style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.white.withOpacity(0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -89,7 +89,7 @@ class _VerificationDialogState extends State<VerificationDialog> {
                       child: Text(
                         'إلغاء',
                         style: AppTextStyles.arabicBody.copyWith(
-                          color: AppColors.white.withOpacity(0.7),
+                          color: AppColors.white.withValues(alpha: 0.7),
                         ),
                       ),
                     ),
@@ -125,7 +125,6 @@ class _VerificationDialogState extends State<VerificationDialog> {
         _isLoading = true;
       });
 
-      // Simulate verification delay
       await Future.delayed(const Duration(seconds: 1));
 
       widget.onVerified(_cardIdController.text);

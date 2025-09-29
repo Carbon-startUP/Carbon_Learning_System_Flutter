@@ -8,10 +8,10 @@ class CategoryFilterWidget extends StatelessWidget {
   final Function(String?) onCategorySelected;
 
   const CategoryFilterWidget({
-    Key? key,
+    super.key,
     required this.selectedCategory,
     required this.onCategorySelected,
-  }) : super(key: key);
+  });
 
   final List<Map<String, String>> categories = const [
     {'value': 'مساحات عمل', 'label': 'مساحات عمل'},

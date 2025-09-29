@@ -17,7 +17,7 @@ class TeacherCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient.scale(0.1),
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.md),
@@ -71,7 +71,7 @@ class TeacherCardWidget extends StatelessWidget {
                 Icon(
                   Icons.email,
                   size: 16,
-                  color: AppColors.white.withOpacity(0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(teacher.email, style: AppTextStyles.bodySmall),
@@ -83,7 +83,7 @@ class TeacherCardWidget extends StatelessWidget {
                 Icon(
                   Icons.phone,
                   size: 16,
-                  color: AppColors.white.withOpacity(0.7),
+                  color: AppColors.white.withValues(alpha: 0.7),
                 ),
                 const SizedBox(width: AppSpacing.xs),
                 Text(teacher.phoneNumber, style: AppTextStyles.bodySmall),

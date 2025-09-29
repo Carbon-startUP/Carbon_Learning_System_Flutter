@@ -3,6 +3,9 @@ import 'package:pasos/features/advertisements/presentation/pages/advertisements_
 import 'package:pasos/features/ai_chat/presentation/pages/ai_chat_page.dart';
 import 'package:pasos/features/auth/presentation/pages/login_page.dart';
 import 'package:pasos/features/auth/presentation/pages/splash_page.dart';
+import 'package:pasos/features/curricula/data/models/curriculum_model.dart';
+import 'package:pasos/features/curricula/presentation/pages/curricula_page.dart';
+import 'package:pasos/features/curricula/presentation/pages/curriculum_details_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/entertainment_category_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/entertainment_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/video_player_page.dart';
@@ -35,6 +38,8 @@ class AppRouter {
   static const String schedule = '/schedule';
   static const String teacherMeetings = '/teacher-meetings';
   static const String requestMeeting = '/request-meeting';
+  static const String curricula = '/curricula';
+  static const String curriculumDetails = '/curriculum-details';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -89,6 +94,11 @@ class AppRouter {
         return _buildPageRoute(const CreateProfilePage());
       case advertisements:
         return _buildPageRoute(const AdvertisementsPage());
+      case curricula:
+        return _buildPageRoute(const CurriculaPage());
+      case curriculumDetails:
+        final curriculum = settings.arguments as CurriculumModel;
+        return _buildPageRoute(CurriculumDetailsPage(curriculum: curriculum));
 
       default:
         return _buildPageRoute(

@@ -9,10 +9,10 @@ class AdvertisementDetailsSheet extends StatelessWidget {
   final VoidCallback onSubscribe;
 
   const AdvertisementDetailsSheet({
-    Key? key,
+    super.key,
     required this.advertisement,
     required this.onSubscribe,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

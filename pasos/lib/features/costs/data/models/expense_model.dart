@@ -3,7 +3,7 @@ class ExpenseModel {
   final String reason;
   final double amount;
   final DateTime dueDate;
-  final String category; // رحلات، أساور، أخرى
+  final String category;
   final bool isPaid;
   final DateTime createdAt;
 

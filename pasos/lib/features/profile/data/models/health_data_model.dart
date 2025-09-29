@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class HealthDataModel {
   final String bloodType;
   final double height;

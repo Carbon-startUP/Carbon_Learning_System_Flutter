@@ -78,7 +78,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
               Text(
                 'سيتم استخدام هذا للتحقق من هويتك',
                 style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.white.withOpacity(0.8),
+                  color: AppColors.white.withValues(alpha: 0.8),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -120,9 +120,9 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
         Container(
           padding: const EdgeInsets.all(AppSpacing.sm),
           decoration: BoxDecoration(
-            color: AppColors.success.withOpacity(0.1),
+            color: AppColors.success.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(AppSpacing.radiusMedium),
-            border: Border.all(color: AppColors.success.withOpacity(0.3)),
+            border: Border.all(color: AppColors.success.withValues(alpha: 0.3)),
           ),
           child: Row(
             children: [

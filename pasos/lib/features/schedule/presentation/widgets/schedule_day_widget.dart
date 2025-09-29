@@ -17,7 +17,7 @@ class ScheduleDayWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient.scale(0.1),
         borderRadius: BorderRadius.circular(AppSpacing.radiusLarge),
-        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: ExpansionTile(
         tilePadding: const EdgeInsets.symmetric(
@@ -36,7 +36,7 @@ class ScheduleDayWidget extends StatelessWidget {
           '${schedule.classes.length} حصص',
           style: AppTextStyles.arabicBody.copyWith(
             fontSize: 14,
-            color: AppColors.white.withOpacity(0.7),
+            color: AppColors.white.withValues(alpha: 0.7),
           ),
         ),
         children: schedule.classes.map((classItem) {
