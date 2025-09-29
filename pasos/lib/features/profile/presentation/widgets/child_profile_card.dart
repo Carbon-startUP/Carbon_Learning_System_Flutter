@@ -67,9 +67,12 @@ class ChildProfileCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.sm),
           _buildInfoRow('العمر', _calculateAge(child.dateOfBirth)),
           _buildInfoRow('الجنس', _translateGender(child.gender)),
-          if (child.schoolName != null)
-            _buildInfoRow('المدرسة', child.schoolName!),
-          if (child.grade != null) _buildInfoRow('الصف', child.grade!),
+          _buildInfoRow('العمر', _calculateAge(child.dateOfBirth)),
+          _buildInfoRow('الجنس', _translateGender(child.gender)),
+          _buildInfoRow('الجنسية', child.nationality),
+          _buildInfoRow('رقم البطاقة', child.cardId.toString()),
+          _buildInfoRow('رقم السوار', child.braceletId.toString()),
+
           const SizedBox(height: AppSpacing.sm),
           _buildHealthSummary(),
         ],
@@ -111,10 +114,6 @@ class ChildProfileCard extends StatelessWidget {
             style: AppTextStyles.arabicBody.copyWith(fontSize: 10),
           ),
           const Spacer(),
-          Text(
-            '${child.healthData.height} سم | ${child.healthData.weight} كجم',
-            style: AppTextStyles.arabicBody.copyWith(fontSize: 10),
-          ),
         ],
       ),
     );

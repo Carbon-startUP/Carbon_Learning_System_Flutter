@@ -29,8 +29,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _phoneController;
   late TextEditingController _emailController;
   late TextEditingController _addressController;
-  late TextEditingController _schoolController;
-  late TextEditingController _gradeController;
+
+  late TextEditingController _religionController;
+  late TextEditingController _nationalityController;
+  late TextEditingController _cardIdController;
+  late TextEditingController _braceletIdController;
 
   late DateTime _selectedDate;
   late String _selectedGender;
@@ -62,40 +65,40 @@ class _EditProfilePageState extends State<EditProfilePage> {
         _phoneController = TextEditingController();
         _emailController = TextEditingController();
         _addressController = TextEditingController();
-        _schoolController = TextEditingController(text: child.schoolName ?? '');
-        _gradeController = TextEditingController(text: child.grade ?? '');
+        _religionController = TextEditingController(text: child.religion);
+        _nationalityController = TextEditingController(text: child.nationality);
+        _cardIdController = TextEditingController(
+          text: child.cardId.toString(),
+        );
+        _braceletIdController = TextEditingController(
+          text: child.braceletId.toString(),
+        );
+        _phoneController = TextEditingController(
+          text: child.phoneNumber.toString(),
+        );
+        _emailController = TextEditingController(text: child.email);
         _healthData = child.healthData;
       } else {
         final user = widget.profile as UserProfileModel;
         _phoneController = TextEditingController(text: user.phoneNumber);
         _emailController = TextEditingController(text: user.email);
         _addressController = TextEditingController(text: user.address);
-        _schoolController = TextEditingController();
-        _gradeController = TextEditingController();
-        _healthData = HealthDataModel(
-          bloodType: 'O+',
-          height: 170,
-          weight: 70,
-          emergencyContact: '',
-          emergencyContactPhone: '',
-        );
+        _religionController = TextEditingController();
+        _nationalityController = TextEditingController();
+        _cardIdController = TextEditingController();
+        _braceletIdController = TextEditingController();
+
+        _healthData = HealthDataModel(bloodType: 'O+');
       }
     } else {
       _fullNameController = TextEditingController();
       _phoneController = TextEditingController();
       _emailController = TextEditingController();
       _addressController = TextEditingController();
-      _schoolController = TextEditingController();
-      _gradeController = TextEditingController();
+
       _selectedDate = DateTime.now().subtract(const Duration(days: 365 * 10));
       _selectedGender = 'ذكر';
-      _healthData = HealthDataModel(
-        bloodType: 'O+',
-        height: 100,
-        weight: 30,
-        emergencyContact: '',
-        emergencyContactPhone: '',
-      );
+      _healthData = HealthDataModel(bloodType: 'O+');
     }
   }
 
@@ -119,8 +122,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             children: [
               _buildPersonalInfoSection(),
               const SizedBox(height: AppSpacing.lg),
-              if (widget.isChild) _buildSchoolInfoSection(),
-              const SizedBox(height: AppSpacing.lg),
+
               _buildHealthDataSection(),
               const SizedBox(height: AppSpacing.xl),
               _buildSaveButton(),
@@ -185,6 +187,57 @@ class _EditProfilePageState extends State<EditProfilePage> {
             }
           },
         ),
+        if (widget.isChild) ...[
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _religionController,
+            decoration: const InputDecoration(labelText: 'الديانة'),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _nationalityController,
+            decoration: const InputDecoration(
+              labelText: 'الجنسية',
+              prefixIcon: Icon(Icons.flag, color: AppColors.primary),
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _emailController,
+            decoration: const InputDecoration(
+              labelText: 'البريد الإلكتروني',
+              prefixIcon: Icon(Icons.email, color: AppColors.primary),
+            ),
+            keyboardType: TextInputType.emailAddress,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _phoneController,
+            decoration: const InputDecoration(
+              labelText: 'رقم الهاتف',
+              prefixIcon: Icon(Icons.phone, color: AppColors.primary),
+            ),
+            keyboardType: TextInputType.phone,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _cardIdController,
+            decoration: const InputDecoration(
+              labelText: 'رقم البطاقة',
+              prefixIcon: Icon(Icons.credit_card, color: AppColors.primary),
+            ),
+            keyboardType: TextInputType.number,
+          ),
+          const SizedBox(height: AppSpacing.md),
+          TextFormField(
+            controller: _braceletIdController,
+            decoration: const InputDecoration(
+              labelText: 'رقم السوار',
+              prefixIcon: Icon(Icons.watch, color: AppColors.primary),
+            ),
+            keyboardType: TextInputType.number,
+          ),
+        ],
         if (!widget.isChild) ...[
           const SizedBox(height: AppSpacing.md),
           TextFormField(
@@ -235,31 +288,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
             },
           ),
         ],
-      ],
-    );
-  }
-
-  Widget _buildSchoolInfoSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('معلومات المدرسة', style: AppTextStyles.titleLarge),
-        const SizedBox(height: AppSpacing.md),
-        TextFormField(
-          controller: _schoolController,
-          decoration: const InputDecoration(
-            labelText: 'اسم المدرسة',
-            prefixIcon: Icon(Icons.school, color: AppColors.primary),
-          ),
-        ),
-        const SizedBox(height: AppSpacing.md),
-        TextFormField(
-          controller: _gradeController,
-          decoration: const InputDecoration(
-            labelText: 'الصف/السنة',
-            prefixIcon: Icon(Icons.class_, color: AppColors.primary),
-          ),
-        ),
       ],
     );
   }
@@ -319,6 +347,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
       final englishGender = _reverseGenderMap[_selectedGender] ?? 'Male';
 
       if (widget.isChild) {
+        final cardId = int.tryParse(_cardIdController.text) ?? 0;
+        final braceletId = int.tryParse(_braceletIdController.text) ?? 0;
+        final phoneNumber = int.tryParse(_phoneController.text) ?? 0;
+
         if (widget.profile == null) {
           final newChild = ChildProfileModel(
             id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -326,10 +358,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
             fullName: _fullNameController.text,
             dateOfBirth: _selectedDate,
             gender: englishGender,
-            schoolName: _schoolController.text.isEmpty
-                ? null
-                : _schoolController.text,
-            grade: _gradeController.text.isEmpty ? null : _gradeController.text,
+            religion: _religionController.text,
+            nationality: _nationalityController.text,
+            email: _emailController.text,
+            phoneNumber: phoneNumber,
+            cardId: cardId,
+            braceletId: braceletId,
+            age: DateTime.now().year - _selectedDate.year,
             healthData: _healthData,
           );
           cubit.addChildProfile(newChild);
@@ -339,10 +374,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
             fullName: _fullNameController.text,
             dateOfBirth: _selectedDate,
             gender: englishGender,
-            schoolName: _schoolController.text.isEmpty
-                ? null
-                : _schoolController.text,
-            grade: _gradeController.text.isEmpty ? null : _gradeController.text,
+            religion: _religionController.text,
+            nationality: _nationalityController.text,
+            email: _emailController.text,
+            phoneNumber: phoneNumber,
+            cardId: cardId,
+            braceletId: braceletId,
+            age: DateTime.now().year - _selectedDate.year,
             healthData: _healthData,
           );
           cubit.updateChildProfile(updatedChild);
@@ -370,8 +408,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _phoneController.dispose();
     _emailController.dispose();
     _addressController.dispose();
-    _schoolController.dispose();
-    _gradeController.dispose();
+    _religionController.dispose();
+    _nationalityController.dispose();
+    _cardIdController.dispose();
+    _braceletIdController.dispose();
     super.dispose();
   }
 }

@@ -3,7 +3,8 @@ import 'package:pasos/shared/theme/app_colors.dart';
 import 'package:pasos/shared/theme/app_text_styles.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+  final String title;
+  const HomeAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

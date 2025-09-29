@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pasos/core/auth/auth_cubit.dart';
 import 'package:pasos/core/navigation/app_router.dart';
 import 'package:pasos/features/ai_chat/presentation/cubit/ai_chat_cubit.dart';
 import 'package:pasos/features/costs/presentation/cubit/costs_cubit.dart';
@@ -51,6 +52,7 @@ void main() {
               trackingRepository: context.read<TrackingRepository>(),
             ),
           ),
+          BlocProvider<AuthCubit>(create: (context) => AuthCubit()),
         ],
         child: const MyApp(),
       ),

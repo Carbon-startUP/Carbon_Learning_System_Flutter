@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pasos/core/auth/auth_state.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -25,22 +26,16 @@ class LoginCubit extends Cubit<LoginState> {
 
       await Future.delayed(const Duration(seconds: 2));
 
-      // TODO: Replace with actual authentication logic
-      bool isValid = await _validateCredentials(userId, password);
-
-      if (isValid) {
-        emit(LoginSuccess('تم تسجيل الدخول بنجاح'));
+      if (password == "123456") {
+        emit(LoginSuccess('تم تسجيل الدخول كطالب', UserRole.student));
+      } else if (password == "654321") {
+        emit(LoginSuccess('تم تسجيل الدخول كولي أمر', UserRole.parent));
       } else {
         emit(LoginError('معرف المستخدم أو كلمة المرور غير صحيحة'));
       }
     } catch (e) {
       emit(LoginError('حدث خطأ أثناء تسجيل الدخول: ${e.toString()}'));
     }
-  }
-
-  Future<bool> _validateCredentials(String userId, String password) async {
-    //accept any user with password "123456"
-    return password == "123456" && userId.isNotEmpty;
   }
 
   void resetState() {
@@ -54,7 +49,13 @@ class LoginCubit extends Cubit<LoginState> {
       await Future.delayed(const Duration(seconds: 1));
 
       // TODO: Implement actual forgot password logic
-      emit(LoginSuccess('تم إرسال رابط إعادة تعيين كلمة المرور'));
+      emit(
+        LoginSuccess(
+          'تم إرسال رابط إعادة تعيين كلمة المرور'
+          'إلى بريدك الإلكتروني',
+          UserRole.student,
+        ),
+      );
     } catch (e) {
       emit(LoginError('حدث خطأ أثناء إرسال رابط إعادة التعيين'));
     }

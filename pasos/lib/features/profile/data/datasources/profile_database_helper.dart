@@ -1,7 +1,8 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import '../models/user_profile_model.dart';
 import '../models/child_profile_model.dart';
+import '../models/health_data_model.dart';
 
 class ProfileDatabaseHelper {
   static const _databaseName = 'profile_database.db';
@@ -34,7 +35,7 @@ class ProfileDatabaseHelper {
     await db.execute('''
       CREATE TABLE $tableUserProfile(
         id TEXT PRIMARY KEY,
-        cardIdNumber TEXT NOT NULL,
+        cardIdNumber TEXT NOT NULL UNIQUE,
         fullName TEXT NOT NULL,
         dateOfBirth TEXT NOT NULL,
         gender TEXT NOT NULL,
@@ -51,18 +52,70 @@ class ProfileDatabaseHelper {
         id TEXT PRIMARY KEY,
         parentId TEXT NOT NULL,
         fullName TEXT NOT NULL,
+        cardId INTEGER,
         dateOfBirth TEXT NOT NULL,
         gender TEXT NOT NULL,
-        schoolName TEXT,
-        grade TEXT,
+        religion TEXT,
+        nationality TEXT,
+        braceletId INTEGER,
+        email TEXT,
+        age INTEGER,
+        phoneNumber INTEGER,
         healthData TEXT NOT NULL
       )
     ''');
+
+    await _seedDatabase(db);
+  }
+
+  Future<void> _seedDatabase(Database db) async {
+    final healthData = HealthDataModel(
+      bloodType: 'A+',
+      chronicConditions: ['Asthma'],
+      currentMedications: ['Ventolin'],
+    );
+
+    final child1 = ChildProfileModel(
+      id: 'child-001',
+      parentId: 'user-123',
+      fullName: 'علي أحمد',
+      cardId: 123456789,
+      dateOfBirth: DateTime(2015, 5, 10),
+      gender: 'Male',
+      religion: 'Islam',
+      nationality: 'Saudi',
+      email: 'ali.ahmed@example.com',
+      age: 10,
+      phoneNumber: 987654321,
+      braceletId: 9876,
+      healthData: healthData,
+    );
+
+    final user1 = UserProfileModel(
+      id: 'user-123',
+      cardIdNumber: '1098765432',
+      fullName: 'أحمد عبدالله',
+      dateOfBirth: DateTime(1985, 1, 15),
+      gender: 'Male',
+      phoneNumber: '0501234567',
+      email: 'ahmed.abdullah@example.com',
+      address: '123 Main St, Riyadh',
+      childrenIds: ['child-001'],
+    );
+
+    await db.insert(tableUserProfile, user1.toJson());
+    await db.insert(tableChildProfile, child1.toJson());
+
+    print('✅ Database seeded with initial test data.');
   }
 
   Future<int> insertUserProfile(UserProfileModel profile) async {
     Database db = await database;
-    return await db.insert(tableUserProfile, profile.toJson());
+    return await db.insert(
+      tableUserProfile,
+      profile.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<int> updateUserProfile(UserProfileModel profile) async {
@@ -94,7 +147,7 @@ class ProfileDatabaseHelper {
     List<Map<String, dynamic>> maps = await db.query(
       tableUserProfile,
       where: 'cardIdNumber = ?',
-      whereArgs: [cardIdNumber],
+      whereArgs: [cardIdNumber.trim()],
     );
 
     if (maps.isNotEmpty) {
@@ -105,7 +158,11 @@ class ProfileDatabaseHelper {
 
   Future<int> insertChildProfile(ChildProfileModel profile) async {
     Database db = await database;
-    return await db.insert(tableChildProfile, profile.toJson());
+    return await db.insert(
+      tableChildProfile,
+      profile.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<int> updateChildProfile(ChildProfileModel profile) async {

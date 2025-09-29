@@ -42,22 +42,9 @@ class _HealthDataFormState extends State<HealthDataForm> {
   @override
   void initState() {
     super.initState();
-    _heightController = TextEditingController(
-      text: widget.initialHealthData.height.toString(),
-    );
-    _weightController = TextEditingController(
-      text: widget.initialHealthData.weight.toString(),
-    );
-    _emergencyContactController = TextEditingController(
-      text: widget.initialHealthData.emergencyContact,
-    );
-    _emergencyPhoneController = TextEditingController(
-      text: widget.initialHealthData.emergencyContactPhone,
-    );
+
     _selectedBloodType = widget.initialHealthData.bloodType;
-    _allergies = List.from(widget.initialHealthData.allergies);
     _chronicConditions = List.from(widget.initialHealthData.chronicConditions);
-    _medications = List.from(widget.initialHealthData.currentMedications);
   }
 
   @override
@@ -161,50 +148,7 @@ class _HealthDataFormState extends State<HealthDataForm> {
           _chronicConditions,
           Icons.medical_information,
         ),
-
         const SizedBox(height: AppSpacing.md),
-        _buildListSection('الأدوية الحالية', _medications, Icons.medication),
-
-        const SizedBox(height: AppSpacing.md),
-        TextFormField(
-          controller: _emergencyContactController,
-          decoration: InputDecoration(
-            labelText: 'اسم جهة الاتصال في حالات الطوارئ',
-            labelStyle: AppTextStyles.arabicBody,
-            prefixIcon: const Icon(
-              Icons.contact_emergency,
-              color: AppColors.primary,
-            ),
-          ),
-          onChanged: (_) => _updateHealthData(),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'يرجى إدخال جهة اتصال الطوارئ';
-            }
-            return null;
-          },
-        ),
-
-        const SizedBox(height: AppSpacing.md),
-        TextFormField(
-          controller: _emergencyPhoneController,
-          decoration: InputDecoration(
-            labelText: 'رقم هاتف الطوارئ',
-            labelStyle: AppTextStyles.arabicBody,
-            prefixIcon: const Icon(
-              Icons.phone_in_talk,
-              color: AppColors.primary,
-            ),
-          ),
-          keyboardType: TextInputType.phone,
-          onChanged: (_) => _updateHealthData(),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'يرجى إدخال رقم هاتف الطوارئ';
-            }
-            return null;
-          },
-        ),
       ],
     );
   }
@@ -319,14 +263,8 @@ class _HealthDataFormState extends State<HealthDataForm> {
   void _updateHealthData() {
     final healthData = HealthDataModel(
       bloodType: _selectedBloodType,
-      height: double.tryParse(_heightController.text) ?? 0,
-      weight: double.tryParse(_weightController.text) ?? 0,
-      allergies: _allergies,
       chronicConditions: _chronicConditions,
       currentMedications: _medications,
-      emergencyContact: _emergencyContactController.text,
-      emergencyContactPhone: _emergencyPhoneController.text,
-      lastCheckupDate: widget.initialHealthData.lastCheckupDate,
     );
     widget.onHealthDataChanged(healthData);
   }

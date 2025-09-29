@@ -10,7 +10,8 @@ import 'package:pasos/features/entertainment/presentation/pages/entertainment_ca
 import 'package:pasos/features/entertainment/presentation/pages/entertainment_page.dart';
 import 'package:pasos/features/entertainment/presentation/pages/video_player_page.dart';
 import 'package:pasos/features/exams/presentation/pages/exam_results_page.dart';
-import 'package:pasos/features/home/presentation/pages/home_page.dart';
+import 'package:pasos/features/home/presentation/pages/parent_home_page.dart';
+import 'package:pasos/features/home/presentation/pages/student_home_page.dart';
 import 'package:pasos/features/ai_chat/presentation/pages/chat_history_page.dart';
 import 'package:pasos/features/profile/presentation/pages/create_profile_page.dart';
 import 'package:pasos/features/profile/presentation/pages/profile_page.dart';
@@ -27,7 +28,8 @@ class AppRouter {
 
   static const String splash = '/';
   static const String login = '/login';
-  static const String home = '/home';
+  static const String studentHome = '/student-home';
+  static const String parentHome = '/parent-home';
   static const String aiChat = '/ai-chat';
   static const String chatHistory = '/chat-history';
   static const String profile = '/profile';
@@ -89,8 +91,10 @@ class AppRouter {
         return _buildPageRoute(const ChatHistoryPage());
       case aiChat:
         return _buildPageRoute(const AiChatPage());
-      case home:
-        return _buildPageRoute(const HomePage());
+      case studentHome:
+        return _buildPageRoute(const StudentHomePage());
+      case parentHome:
+        return _buildPageRoute(const ParentHomePage());
       case login:
         return _buildPageRoute(const LoginPage());
       case splash:

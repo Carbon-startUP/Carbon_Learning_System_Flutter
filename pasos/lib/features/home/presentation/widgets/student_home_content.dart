@@ -5,8 +5,8 @@ import 'package:pasos/shared/theme/app_colors.dart';
 import 'package:pasos/shared/theme/app_text_styles.dart';
 import 'package:pasos/shared/theme/app_spacing.dart';
 
-class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
+class StudentHomeContent extends StatelessWidget {
+  const StudentHomeContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,22 +49,6 @@ class HomeContent extends StatelessWidget {
             ),
             BuildFeatureCard(
               context: context,
-              icon: Icons.person,
-              title: 'حسابي',
-              description: 'إدارة معلوماتي الشخصية والصحية',
-              gradientColors: [AppColors.primary, AppColors.secondary],
-              onTap: () => Navigator.pushNamed(context, AppRouter.profile),
-            ),
-            BuildFeatureCard(
-              context: context,
-              icon: Icons.account_balance_wallet,
-              title: 'المصروفات والأقساط',
-              description: 'متابعة المصروفات والأقساط المالية',
-              gradientColors: [AppColors.primary, AppColors.secondary],
-              onTap: () => Navigator.pushNamed(context, AppRouter.costs),
-            ),
-            BuildFeatureCard(
-              context: context,
               icon: Icons.play_circle_outline,
               title: 'الترفيه والكرتون',
               description: 'مشاهدة أفلام الكرتون والقصص التعليمية',
@@ -104,14 +88,6 @@ class HomeContent extends StatelessWidget {
               description: 'عرض نتائج الامتحانات الدراسية',
               gradientColors: [AppColors.primary, AppColors.secondary],
               onTap: () => Navigator.pushNamed(context, AppRouter.examResults),
-            ),
-            BuildFeatureCard(
-              context: context,
-              icon: Icons.location_on_outlined,
-              title: 'تتبع الطالب',
-              description: 'عرض مسار الطالب وتفعيل خدمة التتبع',
-              gradientColors: [AppColors.primary, AppColors.secondary],
-              onTap: () => Navigator.pushNamed(context, AppRouter.tracking),
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pasos/core/auth/auth_cubit.dart';
 import 'package:pasos/features/auth/presentation/widgets/login_header.dart';
 import '../cubit/login_cubit.dart';
 import '../cubit/login_state.dart';
@@ -32,7 +33,7 @@ class LoginPage extends StatelessWidget {
                         backgroundColor: AppColors.success,
                       ),
                     );
-                    Navigator.of(context).pushReplacementNamed('/home');
+                    context.read<AuthCubit>().login(state.userRole);
                   } else if (state is LoginError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

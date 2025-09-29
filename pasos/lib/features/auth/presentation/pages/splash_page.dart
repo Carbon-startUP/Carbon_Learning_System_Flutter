@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pasos/features/auth/presentation/pages/landing_page.dart';
 import '../../../../shared/theme/app_colors.dart';
 import '../../../../shared/theme/app_spacing.dart';
 
@@ -48,7 +49,9 @@ class _SplashPageState extends State<SplashPage>
   void _navigateToLogin() {
     Future.delayed(const Duration(milliseconds: 3000), () {
       if (mounted) {
-        Navigator.of(context).pushReplacementNamed('/login');
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const LandingPage()),
+        );
       }
     });
   }

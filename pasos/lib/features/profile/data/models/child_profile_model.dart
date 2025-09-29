@@ -3,22 +3,32 @@ import 'package:pasos/features/profile/data/models/health_data_model.dart';
 
 class ChildProfileModel {
   final String id;
+  final int cardId;
+  final int braceletId;
+  final String religion;
+  final String nationality;
+  final String email;
+  final int age;
+  final int phoneNumber;
   final String parentId;
   final String fullName;
   final DateTime dateOfBirth;
   final String gender;
-  final String? schoolName;
-  final String? grade;
   final HealthDataModel healthData;
 
   ChildProfileModel({
     required this.id,
+    required this.cardId,
+    required this.braceletId,
+    required this.religion,
+    required this.nationality,
+    required this.email,
+    required this.age,
+    required this.phoneNumber,
     required this.parentId,
     required this.fullName,
     required this.dateOfBirth,
     required this.gender,
-    this.schoolName,
-    this.grade,
     required this.healthData,
   });
 
@@ -26,10 +36,15 @@ class ChildProfileModel {
     'id': id,
     'parentId': parentId,
     'fullName': fullName,
+    'cardId': cardId,
     'dateOfBirth': dateOfBirth.toIso8601String(),
     'gender': gender,
-    'schoolName': schoolName,
-    'grade': grade,
+    'religion': religion,
+    'nationality': nationality,
+    'braceletId': braceletId,
+    'email': email,
+    'age': age,
+    'phoneNumber': phoneNumber,
     'healthData': jsonEncode(healthData.toJson()),
   };
 
@@ -38,10 +53,15 @@ class ChildProfileModel {
         id: json['id'],
         parentId: json['parentId'],
         fullName: json['fullName'],
+        cardId: json['cardId'],
         dateOfBirth: DateTime.parse(json['dateOfBirth']),
         gender: json['gender'],
-        schoolName: json['schoolName'],
-        grade: json['grade'],
+        religion: json['religion'],
+        nationality: json['nationality'],
+        email: json['email'],
+        age: json['age'],
+        phoneNumber: json['phoneNumber'],
+        braceletId: json['braceletId'],
         healthData: HealthDataModel.fromJson(
           json['healthData'] is String
               ? jsonDecode(json['healthData'])
@@ -53,21 +73,32 @@ class ChildProfileModel {
     String? id,
     String? parentId,
     String? fullName,
+    int? cardId,
     DateTime? dateOfBirth,
     String? gender,
-    String? schoolName,
-    String? grade,
+    int? braceletId,
+    String? religion,
+    String? nationality,
+    String? email,
+    int? age,
+    int? phoneNumber,
+
     HealthDataModel? healthData,
   }) {
     return ChildProfileModel(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       fullName: fullName ?? this.fullName,
+      cardId: cardId ?? this.cardId,
       dateOfBirth: dateOfBirth ?? this.dateOfBirth,
       gender: gender ?? this.gender,
-      schoolName: schoolName ?? this.schoolName,
-      grade: grade ?? this.grade,
       healthData: healthData ?? this.healthData,
+      braceletId: braceletId ?? this.braceletId,
+      religion: religion ?? this.religion,
+      nationality: nationality ?? this.nationality,
+      email: email ?? this.email,
+      age: age ?? this.age,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
     );
   }
 }
