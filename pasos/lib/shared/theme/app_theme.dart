@@ -21,7 +21,8 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
         titleTextStyle: AppTextStyles.headlineLarge,
-        iconTheme: const IconThemeData(color: AppColors.white),
+        iconTheme: const IconThemeData(color: AppColors.black),
+        actionsIconTheme: const IconThemeData(color: AppColors.black),
       ),
       textTheme: TextTheme(
         headlineLarge: AppTextStyles.headlineLarge,
