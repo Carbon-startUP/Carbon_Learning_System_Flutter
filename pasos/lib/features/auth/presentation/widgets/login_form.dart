@@ -16,13 +16,13 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  final _userIdController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
 
   @override
   void dispose() {
-    _userIdController.dispose();
+    _usernameController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -30,27 +30,10 @@ class _LoginFormState extends State<LoginForm> {
   void _login() {
     if (_formKey.currentState!.validate()) {
       context.read<LoginCubit>().login(
-        _userIdController.text.trim(),
+        _usernameController.text.trim(),
         _passwordController.text.trim(),
       );
     }
-  }
-
-  void _forgotPassword() {
-    if (_userIdController.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'يرجى إدخال كود المستخدم أولاً',
-            textDirection: TextDirection.rtl,
-          ),
-          backgroundColor: AppColors.warning,
-        ),
-      );
-      return;
-    }
-
-    context.read<LoginCubit>().forgotPassword(_userIdController.text.trim());
   }
 
   @override
@@ -67,7 +50,7 @@ class _LoginFormState extends State<LoginForm> {
         child: Column(
           children: [
             CustomTextField(
-              controller: _userIdController,
+              controller: _usernameController,
               labelText: 'كود المستخدم',
               hintText: 'أدخل كود المستخدم',
               prefixIcon: Icons.person_outline,
@@ -151,17 +134,6 @@ class _LoginFormState extends State<LoginForm> {
               },
             ),
             const SizedBox(height: AppSpacing.lg),
-            TextButton(
-              onPressed: _forgotPassword,
-              child: Text(
-                'نسيت كلمة المرور؟',
-                style: AppTextStyles.arabicBody.copyWith(
-                  color: AppColors.primary,
-                  decoration: TextDecoration.underline,
-                ),
-                textDirection: TextDirection.rtl,
-              ),
-            ),
           ],
         ),
       ),
