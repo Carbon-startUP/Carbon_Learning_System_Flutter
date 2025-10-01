@@ -43,7 +43,7 @@ A modern Flutter application for educational management, student tracking, smart
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/Carbon-startUP/Carbon_Learning_System_Flutter
    cd pasos
    ```
 
